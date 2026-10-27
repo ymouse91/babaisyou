@@ -1,19 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Baba kertaa Keke">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Baba kertaa Keke, suuremmat hahmot">
 <rect width="512" height="512" fill="#24392f"/>
+<g transform="translate(-80 -117) scale(1.45)">
 <ellipse cx="151" cy="351" rx="83" ry="13" fill="#182b23"/>
-<ellipse cx="360" cy="365" rx="67" ry="12" fill="#182b23"/>
 <g fill="#fffdf4" stroke="#182b23" stroke-width="7" stroke-linejoin="round">
 <rect x="92" y="300" width="17" height="43" rx="7"/><rect x="114" y="300" width="17" height="43" rx="7"/>
 <rect x="173" y="300" width="17" height="43" rx="7"/><rect x="195" y="300" width="17" height="43" rx="7"/>
 <path d="M84 249Q84 218 115 218H182Q216 218 216 252V298Q216 319 195 319H106Q84 319 84 298Z"/>
-<path d="M98 226V190Q98 179 109 179Q120 179 120 190V226"/>
+<path d="M128 226V190Q128 179 139 179Q150 179 150 190V226"/>
 <path d="M163 224V190Q163 179 174 179Q185 179 185 190V224"/>
 </g>
 <g fill="#24392f"><circle cx="183" cy="251" r="6"/><circle cx="203" cy="251" r="6"/></g>
+</g>
 <path d="M242 244L270 272M270 244L242 272" stroke="#ce397c" stroke-width="14" stroke-linecap="round"/>
+<g transform="translate(-172 -135) scale(1.5)">
+<ellipse cx="360" cy="365" rx="67" ry="12" fill="#182b23"/>
 <g fill="#ed825e" stroke="#182b23" stroke-width="7" stroke-linejoin="round">
 <rect x="325" y="311" width="17" height="45" rx="8"/><rect x="378" y="311" width="17" height="45" rx="8"/>
 <path d="M309 241Q309 191 360 191Q411 191 411 241V299Q411 327 383 327H337Q309 327 309 299Z"/>
 </g>
 <g fill="#24392f"><circle cx="335" cy="231" r="6"/><circle cx="357" cy="231" r="6"/></g>
+</g>
 </svg>

@@ -1,5 +1,5 @@
 /* Generated as sw.js by build.mjs. Keep the entire app shell in one revision. */
-const REVISION="1.1.0-36ebf112a4ba";
+const REVISION="1.1.1-52f27b51b9f9";
 const FILES=[
  "./",
  "./index.html",

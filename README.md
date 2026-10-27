@@ -1,6 +1,6 @@
 # Baba × Keke
 
-Sääntöjä muuttava kaksinpeli iPadille ja PC:lle. **Versio 1.1.0** toimii asennettavana offline-PWA:na. Myös paikallinen AI toimii ilman verkkoyhteyttä.
+Sääntöjä muuttava kaksinpeli iPadille ja PC:lle. **Versio 1.1.1** toimii asennettavana offline-PWA:na. Myös paikallinen AI toimii ilman verkkoyhteyttä.
 
 **Pelaa:** https://ymouse91.github.io/babaisyou/
 

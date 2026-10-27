@@ -60,7 +60,7 @@ Tarkistus: `node test-faq.mjs` testaa FASTin hallinnan menettämisen, välittöm
 
 ## Versionumerointi
 
-Nykyinen versio on **1.1.0**. Versionumero määritellään yhdessä paikassa: `engine.mjs` → `APP_VERSION`. Käyttöliittymä näyttää sen pienellä fontilla BABA × KEKE -nimen perässä. Sama lähde päätyy sekä palvelimella avattuun peliin että generoituun peli.html-tiedostoon.
+Nykyinen versio on **1.1.1**. Versionumero määritellään yhdessä paikassa: `engine.mjs` → `APP_VERSION`. Käyttöliittymä näyttää sen pienellä fontilla BABA × KEKE -nimen perässä. Sama lähde päätyy sekä palvelimella avattuun peliin että generoituun peli.html-tiedostoon.
 
 Pienet korjaukset kasvattavat viimeistä numeroa (1.0.1), uudet ominaisuudet keskimmäistä (1.1.0) ja yhteensopivuuden rikkovat muutokset ensimmäistä (2.0.0). Version 1.0.0 pelilogiikka on käyttäjän hyväksymä liiteversio, johon lisättiin näkyvä versionumero.
 

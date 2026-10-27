@@ -14,7 +14,7 @@
 .piece.text.rock,.piece.text.flag{background:transparent}.noun-art{display:block;width:100%;height:100%;overflow:visible}.noun-lettering{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-size:31px;font-weight:900;letter-spacing:-1.5px}
 
 /* Complete both character silhouettes in the player panels and on the board. */
-.avatar .extra-part{position:absolute;display:block;pointer-events:none;background:inherit}.avatar.baba .extra-part{left:18px;top:-8px;width:6px;height:10px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar.keke:before,.avatar.keke .extra-part{top:auto;bottom:-8px;width:5px;height:9px;border:2px solid #24392f;border-top:0;border-radius:0 0 5px 5px}.avatar.keke .extra-part{left:15px}
+.avatar .extra-part{position:absolute;display:block;pointer-events:none;background:inherit}.avatar.baba::before{left:11px}.avatar.baba .extra-part{left:18px;top:-8px;width:6px;height:10px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar.keke:before,.avatar.keke .extra-part{top:auto;bottom:-8px;width:5px;height:9px;border:2px solid #24392f;border-top:0;border-radius:0 0 5px 5px}.avatar.keke .extra-part{left:15px}
 .piece.text.win{background:transparent}.property-art{display:block;width:100%;height:100%}.property-is,.property-win{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-weight:900}.property-is{font-size:22px}.property-win{font-size:35px;letter-spacing:-2px}
 
 /* Equal-sized Keke legs; four small Baba feet. Explicit box sizing also
@@ -38,7 +38,7 @@
 .cell .piece.object .avatar{font-size:inherit;transform:none;width:1em;height:.794em;border-width:.059em;flex-shrink:0}
 .cell .piece.object .avatar::after{right:.059em;top:0;font-size:.47em;letter-spacing:.029em}
 .cell .piece.object .avatar.baba::before,.cell .piece.object .avatar.baba .extra-part{box-sizing:border-box;width:.235em;height:.353em;top:-.235em;bottom:auto;border:.059em solid #24392f;border-bottom:0;border-radius:.147em;background:#fffdf4}
-.cell .piece.object .avatar.baba::before{left:.088em}
+.cell .piece.object .avatar.baba::before{left:.265em}
 .cell .piece.object .avatar.baba .extra-part{left:.529em}
 .cell .piece.object .avatar.baba .baba-foot{width:.147em;height:.206em;bottom:-.176em;border-width:.044em;border-top:0;border-radius:0 0 .088em .088em}
 .cell .piece.object .avatar.baba .foot-0{left:.029em;right:auto}
@@ -118,7 +118,7 @@
 <dialog id="helpDialog"><button class="close" onclick="this.parentElement.close()">Sulje ×</button><p class="eyebrow">DEFAULT + WORLDS 1–2</p><h2>Näin pelaat</h2><ol><li>Toiminnot saa tehdä missä järjestyksessä tahansa: myös aseta + aseta on sallittu. Aloittaja tekee yhden toiminnon. Sen jälkeen vuorossa on aina kaksi toimintoa. Jos et voi tehdä kahta toimintoa, häviät, ellet haasta vastustajaa.</li><li>Liikuta yhtä omaa hahmoa yhden ruudun verran tai aseta laatta tyhjään viereiseen ruutuun. Ei vinottain.</li><li>Kaikki esineet ja sanalaatat työntyvät. Tavallinen työntö onnistuu vain, jos seuraava ruutu on vapaa. STRONG sallii työntöketjut ja palojen työntämisen reunan yli.</li><li>Raahaa hallitsemasi esine kohderuutuun hiiri tai sormi alhaalla, kun haluat vetää lähtöruudun vastakkaisella puolella olevat esineet mukaasi. Napsauttamalla tehty siirto ei vedä. FAST vetää oletuksena koko matkan. Jos haluat lopettaa vedon kesken, pysähdy hetkeksi väliruutuun, kunnes veto lukittuu siihen, ja jatka sitten raahausta loppuruutuun.</li><li>ROCK- tai FLAG-laatan nuoli osoittaa oikealle ja alas. Vieressä oleva IS WIN tekee esineistä voittokohteita. Reunan IS YOU antaa hallinnan sen pelaajalle.</li><li>Voitat, kun oma esineesi ja toinen WIN-esine ovat samassa ruudussa toiminnon lopussa. Jos molemmat voittavat samalla toiminnolla, toiminnon tehnyt voittaa.</li><li>Vuoron lopussa lauta ei saa olla sama kuin vuoron alussa tai vastustajan edellisen vuoron alussa.</li><li>Vuoron alussa voit haastaa: vastustaja saa viisi peräkkäistä vuoroa eli kymmenen toimintoa voittaakseen. Muuten sinä voitat.</li></ol><p><strong>Asenna offline-peli:</strong> avaa pelin HTTPS-osoite Safarissa, valitse Jaa → Lisää Koti-valikkoon. Odota ensin ilmoitusta ”Valmis offline-peliin”. Tämän jälkeen peli ja AI toimivat ilman verkkoyhteyttä. Uusi versio otetaan käyttöön Päivitä peli -painikkeesta. Keskeneräinen peli säilyy samalla laitteella ja samassa selaimessa.</p><div id="level-help"></div><p>World 1:n Level 1 lisää yhden ROCK- ja yhden FLAG-sanalaatan. Mukana on yhteensä kaksi kumpaakin sekä kaksi IS WIN -laattaa. Joki on kiinteää maastoa. Level 1:ssä sillä ei vielä ole vaikutusta. Tasolla 3 pysyvä RIVER IS HOT tekee jokiruuduista kuumia.</p></dialog>
 <dialog id="resetDialog"><h2>Tasot, pelaajat ja kieli</h2><label class="language-choice"><input type="checkbox" id="finnish-pieces"> Suomenkieliset pelimerkit ja lauta</label><p>Aloituspainike aloittaa uuden pelin valituilla tasoilla. DEFAULT on aina mukana. Valitse lisäksi enintään kaksi tasoa; maailmoja voi yhdistellä vapaasti. Pelaajaa ja tekstikieltä voi vaihtaa myös kesken pelin.</p><fieldset class="player-settings"><legend>Pelaajat</legend><label>Baba <select id="controller-0"><option value="human">Ihminen</option><option value="ai">AI</option></select></label><label>Keke <select id="controller-1"><option value="human">Ihminen</option><option value="ai">AI</option></select></label></fieldset><p id="level-count" role="status" aria-live="polite"></p><div id="level-options"></div><button id="start0">Baba aloittaa</button><button id="start1">Keke aloittaa</button><button onclick="this.parentElement.close()">Sulje</button></dialog>
 <dialog id="thirstyDialog" aria-labelledby="thirsty-title"><h2 id="thirsty-title">Valitse reitti joelle</h2><p id="thirsty-description"></p><div id="thirsty-options"></div><button id="cancel-thirsty">Peruuta toiminto</button></dialog>
-<script id="ai-worker-source" type="text/plain">const APP_VERSION='1.1.0';
+<script id="ai-worker-source" type="text/plain">const APP_VERSION='1.1.1';
 const RIVER_CELLS=Object.freeze([[0,0],[0,1],[1,1],[2,1],[2,2],[2,3],[3,3],[4,3],[4,4]].map(Object.freeze));
 const isRiver=(x,y)=>RIVER_CELLS.some(([a,b])=>a===x&&b===y);
 const dirs=[[0,-1],[1,0],[0,1],[-1,0]];
@@ -459,7 +459,7 @@ self.onmessage=event=>{
  try{const result=chooseAI(event.data.state,event.data.options);self.postMessage({id:event.data.id,result});}
  catch(error){self.postMessage({id:event.data.id,error:error.message??String(error)});}
 };
-</script><script type="module">const APP_VERSION='1.1.0';
+</script><script type="module">const APP_VERSION='1.1.1';
 const RIVER_CELLS=Object.freeze([[0,0],[0,1],[1,1],[2,1],[2,2],[2,3],[3,3],[4,3],[4,4]].map(Object.freeze));
 const isRiver=(x,y)=>RIVER_CELLS.some(([a,b])=>a===x&&b===y);
 const dirs=[[0,-1],[1,0],[0,1],[-1,0]];

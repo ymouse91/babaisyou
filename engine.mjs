@@ -1,4 +1,4 @@
-export const APP_VERSION='1.1.0';
+export const APP_VERSION='1.1.1';
 export const RIVER_CELLS=Object.freeze([[0,0],[0,1],[1,1],[2,1],[2,2],[2,3],[3,3],[4,3],[4,4]].map(Object.freeze));
 export const isRiver=(x,y)=>RIVER_CELLS.some(([a,b])=>a===x&&b===y);
 export const dirs=[[0,-1],[1,0],[0,1],[-1,0]];

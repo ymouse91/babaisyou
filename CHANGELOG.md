@@ -1,5 +1,10 @@
 # Muutokset
 
+## 1.1.1 — 27.10.2026
+
+- Baba ja Keke näkyvät suurempina sovelluksen kuvakkeessa.
+- Baban vasen korva on lähempänä kasvoja sekä kuvakkeessa että pelin hahmossa.
+
 ## 1.1.0 — 27.10.2026
 
 - Asennettava offline-PWA iPadille ja PC:lle.

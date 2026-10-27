@@ -14,7 +14,7 @@
 .piece.text.rock,.piece.text.flag{background:transparent}.noun-art{display:block;width:100%;height:100%;overflow:visible}.noun-lettering{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-size:31px;font-weight:900;letter-spacing:-1.5px}
 
 /* Complete both character silhouettes in the player panels and on the board. */
-.avatar .extra-part{position:absolute;display:block;pointer-events:none;background:inherit}.avatar.baba .extra-part{left:18px;top:-8px;width:6px;height:10px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar.keke:before,.avatar.keke .extra-part{top:auto;bottom:-8px;width:5px;height:9px;border:2px solid #24392f;border-top:0;border-radius:0 0 5px 5px}.avatar.keke .extra-part{left:15px}
+.avatar .extra-part{position:absolute;display:block;pointer-events:none;background:inherit}.avatar.baba::before{left:11px}.avatar.baba .extra-part{left:18px;top:-8px;width:6px;height:10px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar.keke:before,.avatar.keke .extra-part{top:auto;bottom:-8px;width:5px;height:9px;border:2px solid #24392f;border-top:0;border-radius:0 0 5px 5px}.avatar.keke .extra-part{left:15px}
 .piece.text.win{background:transparent}.property-art{display:block;width:100%;height:100%}.property-is,.property-win{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-weight:900}.property-is{font-size:22px}.property-win{font-size:35px;letter-spacing:-2px}
 
 /* Equal-sized Keke legs; four small Baba feet. Explicit box sizing also
@@ -38,7 +38,7 @@
 .cell .piece.object .avatar{font-size:inherit;transform:none;width:1em;height:.794em;border-width:.059em;flex-shrink:0}
 .cell .piece.object .avatar::after{right:.059em;top:0;font-size:.47em;letter-spacing:.029em}
 .cell .piece.object .avatar.baba::before,.cell .piece.object .avatar.baba .extra-part{box-sizing:border-box;width:.235em;height:.353em;top:-.235em;bottom:auto;border:.059em solid #24392f;border-bottom:0;border-radius:.147em;background:#fffdf4}
-.cell .piece.object .avatar.baba::before{left:.088em}
+.cell .piece.object .avatar.baba::before{left:.265em}
 .cell .piece.object .avatar.baba .extra-part{left:.529em}
 .cell .piece.object .avatar.baba .baba-foot{width:.147em;height:.206em;bottom:-.176em;border-width:.044em;border-top:0;border-radius:0 0 .088em .088em}
 .cell .piece.object .avatar.baba .foot-0{left:.029em;right:auto}

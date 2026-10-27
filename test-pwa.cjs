@@ -18,7 +18,7 @@ const {pathToFileURL}=require('node:url');
    }
    await page.goto(url);await page.waitForFunction(()=>document.getElementById('offline-status').textContent==='Valmis offline-peliin');await page.waitForFunction(prefix=>navigator.serviceWorker.controller?.scriptURL.endsWith(prefix+'sw.js'),prefix);
    const manifest=await page.evaluate(async()=>fetch(document.querySelector('link[rel=manifest]').href).then(r=>r.json()));assert.equal(new URL(manifest.start_url,url).href,url);assert.equal(manifest.display,'standalone');assert(manifest.icons.some(icon=>icon.sizes==='192x192'));assert(manifest.icons.some(icon=>icon.purpose==='maskable'));assert.equal(await page.locator('link[rel=apple-touch-icon]').getAttribute('sizes'),'180x180');
-   assert.equal(await page.locator('#app-version').textContent(),'v1.1.0');
+   assert.equal(await page.locator('#app-version').textContent(),'v1.1.1');
    await page.getByRole('button',{name:'Valitse tasot',exact:true}).click();await page.locator('[name=level][value="1"]').uncheck();await page.locator('[name=level][value="3"]').check();await page.locator('[name=level][value="25"]').check();await page.locator('#finnish-pieces').check();await page.getByRole('button',{name:'Baba aloittaa',exact:true}).click();await page.getByRole('gridcell').nth(20).click();await page.getByRole('gridcell').nth(15).click();
    const saved=await page.evaluate(()=>localStorage.getItem('baba-world1-v2'));assert(saved);
    await context.setOffline(true);await page.reload();assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),saved);assert.equal(await page.locator('.edge.right .property').textContent(),'ONSINÄ');await page.waitForFunction(()=>document.getElementById('offline-status').textContent.includes('Offline-tila'));
@@ -30,13 +30,13 @@ const {pathToFileURL}=require('node:url');
    }
    // An update is downloaded atomically but activates only after the user chooses it.
    await context.setOffline(false);const human=e.initial(0,[3,25]);await page.evaluate(s=>localStorage.setItem('baba-world1-v2',JSON.stringify(s)),human);await page.goto(url);const beforeUpdate=await page.evaluate(()=>localStorage.getItem('baba-world1-v2'));
-   files=new Map([...original].map(([file,data])=>[file,['engine.mjs','peli.html','sw.js'].includes(file)?Buffer.from(data.toString().replaceAll('1.1.0','1.1.1')):data]));
-   await page.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});await page.locator('#update-app').waitFor({state:'visible'});assert.equal(await page.locator('#app-version').textContent(),'v1.1.0');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);
-   await page.locator('#update-app').click();await page.waitForFunction(()=>document.getElementById('app-version').textContent==='v1.1.1');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);
+   files=new Map([...original].map(([file,data])=>[file,['engine.mjs','peli.html','sw.js'].includes(file)?Buffer.from(data.toString().replaceAll('1.1.1','1.1.2')):data]));
+   await page.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();await reg.update();});await page.locator('#update-app').waitFor({state:'visible'});assert.equal(await page.locator('#app-version').textContent(),'v1.1.1');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);
+   await page.locator('#update-app').click();await page.waitForFunction(()=>document.getElementById('app-version').textContent==='v1.1.2');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);
    // A broken next release must not damage the working offline revision.
-   files=new Map([...files].map(([file,data])=>[file,file==='sw.js'?Buffer.from(data.toString().replaceAll('1.1.1','1.1.2')):data]));missing='assets/fonts/dm-sans.ttf';
+   files=new Map([...files].map(([file,data])=>[file,file==='sw.js'?Buffer.from(data.toString().replaceAll('1.1.2','1.1.3')):data]));missing='assets/fonts/dm-sans.ttf';
    await page.evaluate(async()=>{const reg=await navigator.serviceWorker.getRegistration();const done=new Promise(resolve=>reg.addEventListener('updatefound',()=>{const worker=reg.installing;worker.addEventListener('statechange',()=>{if(worker.state==='redundant')resolve();});},{once:true}));await reg.update();await done;});
-   await context.setOffline(true);await page.reload();assert.equal(await page.locator('#app-version').textContent(),'v1.1.1');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);assert.equal(await page.locator('#update-app').isVisible(),false);
+   await context.setOffline(true);await page.reload();assert.equal(await page.locator('#app-version').textContent(),'v1.1.2');assert.equal(await page.evaluate(()=>localStorage.getItem('baba-world1-v2')),beforeUpdate);assert.equal(await page.locator('#update-app').isVisible(),false);
    if(prefix!=='/')assert(await page.evaluate(()=>caches.has('other-game-cache')));
    assert.deepEqual(errors,[]);console.log(name+': manifest/icons, scoped cache, offline reload/state/Finnish/AI, both entries, explicit update and failed-update recovery passed.');await context.close();
   }
