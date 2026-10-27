@@ -1,0 +1,13 @@
+{
+  "name": "baba-keke",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs --dist",
+    "check": "node build.mjs --check",
+    "start": "node server.mjs",
+    "test": "node test.mjs && node test-levels.mjs && node test-world2.mjs && node test-faq.mjs",
+    "test:pwa": "node test-pwa.cjs"
+  },
+  "devDependencies": {"playwright": "1.60.0"}
+}

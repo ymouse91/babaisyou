@@ -1,0 +1,974 @@
+<!doctype html><html lang="fi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#24392f"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Baba × Keke"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png"><title>Baba × Keke · Worlds 1–2</title><style>@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('./assets/fonts/dm-sans.ttf') format('truetype')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('./assets/fonts/space-grotesk.ttf') format('truetype')}
+:root{--bg:#f3f1e8;--ink:#24392f;--pink:#ce397c;--lime:#d9e787;--muted:#70796f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif}button,a,input{touch-action:manipulation}button{font:inherit;cursor:pointer;color:inherit;border:1px solid #c9cec1;background:transparent;border-radius:9px;padding:11px 15px}button:hover{background:#e3e7d5}button:focus-visible{outline:3px solid var(--pink);outline-offset:3px}button:disabled{opacity:.35;cursor:default}header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 4vw;border-bottom:1px solid #d7dacd}.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:25px;letter-spacing:-1px;text-decoration:none;color:var(--ink)}.brand span{color:var(--pink);margin:0 6px}.edition{font-size:10px;letter-spacing:1.5px}.edition span{display:block;color:var(--muted);margin-top:5px}header button{font-size:12px}main{max-width:1550px;margin:auto;padding:44px 4vw;display:grid;grid-template-columns:minmax(210px,.85fr) minmax(400px,1.65fr) minmax(170px,.65fr);gap:3.5vw}.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.8px;margin:0 0 14px;color:var(--muted)}h1,h2{font-family:'Space Grotesk',sans-serif}h1{font-size:clamp(30px,3.3vw,49px);line-height:1.12;letter-spacing:-2px;margin:22px 0}h1 em{font-style:normal;color:#6e8147}h2{font-size:19px;margin:0 0 12px}.intro>p:not(.eyebrow){font-size:13px;line-height:1.7}.players{margin:32px 0}.players>div{padding:14px 12px;display:flex;align-items:center;gap:15px;border-top:1px solid #d4d8c9}.players>div.active{background:#e4e9d4;border-radius:10px;border-color:transparent}.players span{font-size:12px;font-weight:700;letter-spacing:1px}.players small{display:block;color:var(--muted);font-weight:400;letter-spacing:0;font-size:11px;margin-top:4px}.players b{margin-left:auto;font-size:9px;letter-spacing:1px}.avatar{width:32px;height:27px;display:inline-block;position:relative;border:2px solid #24392f;border-radius:45% 45% 25% 25%;background:#fffdf4}.avatar:before{content:'';position:absolute;width:6px;height:10px;background:inherit;left:3px;top:-8px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar:after{content:'••';position:absolute;right:2px;top:0;font-size:16px;letter-spacing:1px}.avatar.keke{background:#ed825e;border-radius:42% 42% 35% 35%;width:25px;height:34px}.avatar.keke:before{top:auto;bottom:-8px;height:9px;width:5px}.rulebox{border-top:1px solid #ccd2c1;padding-top:20px}#rules{display:flex;gap:7px;flex-wrap:wrap}#rules span{font-size:10px;padding:7px 9px;background:#e5e8db;border-radius:5px}.subtle{font-size:12px!important;line-height:1.7;color:var(--muted)}.intro>.subtle{margin-top:28px;font-size:10px!important}.turn{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.turn .eyebrow{margin-bottom:5px}#dots{display:flex;gap:6px}#dots i{width:12px;height:12px;border-radius:50%;background:var(--pink)}#dots i.used{background:#d3d8c8}.board-frame{position:relative;padding:53px;background:#24392f;border-radius:24px;box-shadow:0 14px 35px #24392f17}#board{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;aspect-ratio:1}.cell{aspect-ratio:1;padding:3px;border:1px solid #536a54;border-radius:7px;background:#344c3c;display:flex;align-items:center;justify-content:center;position:relative;min-width:0;gap:2px}.cell:hover{background:#486047}.cell.target{box-shadow:inset 0 0 0 2px var(--lime);background:#53683f}.cell.selected{box-shadow:inset 0 0 0 3px #fff}.piece{font-family:'Space Grotesk',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.05;pointer-events:none}.piece.text{border-radius:50%;width:90%;height:90%;color:#25362b;background:#c5d47d;font-size:clamp(9px,1.4vw,19px)}.piece.text.rock{background:#b99362}.piece.text.win{background:var(--pink);color:#fff6ec;border-radius:7px}.piece small{font-size:8px;margin-top:2px}.piece.object{font-size:clamp(20px,3vw,42px);filter:drop-shadow(0 3px 0 #0002)}.piece.object .avatar{width:34px;height:27px}.piece.object .avatar.keke{height:33px;width:26px}.cell.stack .piece{transform:scale(.7);margin:-6px}.badge{position:absolute;bottom:1px;right:3px;font-size:7px;color:var(--lime);font-weight:700}.edge{position:absolute;display:flex;align-items:center}.fixed{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Space Grotesk';font-size:9px;font-weight:700;line-height:1.1;color:#172b23}.fixed.noun{border-radius:50%;background:#d9e787}.fixed.keke-word{background:#ed825e}.fixed.property{border-radius:6px;background:var(--pink);color:#fff}.fixed small{font-size:7px;margin-top:3px}.edge.top{left:calc(53px + (100% - 106px) * .4);top:6px;gap:calc((100vw - 300px) * 0)}.edge.top .fixed+.fixed{margin-left:calc((100vw - 900px) * .01 + 8px)}.edge.bottom{bottom:6px;left:calc(53px + (100% - 106px) * .4)}.edge.left{left:6px;top:calc(53px + (100% - 106px) * .4);flex-direction:column;gap:8px}.edge.right{right:6px;top:calc(53px + (100% - 106px) * .4)}#message{font-size:12px;min-height:34px;line-height:1.5;margin:17px 0 10px}.controls{display:flex;justify-content:space-between;align-items:center;gap:10px}.toggle{font-size:12px;cursor:pointer}.toggle span{display:block;font-size:10px;color:var(--muted);margin:5px 0 0 23px}.toggle input{accent-color:var(--pink)}.arrows{display:flex;gap:5px}.arrows button{padding:9px 12px;background:#e6e9db;font-size:19px}aside{padding-top:4px}aside h2{font-size:22px}#supply{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}#supply button{aspect-ratio:1;padding:7px;display:flex;justify-content:center;align-items:center;background:#e7e8db;border:1px solid transparent}#supply button.selected{border:2px solid var(--pink);background:#f3e2e8}#supply .piece{font-size:17px}.challenge{border-top:1px solid #d2d8c7;padding-top:25px;margin-top:28px}.challenge p:not(.eyebrow){font-size:12px;line-height:1.7}.challenge button{font-size:11px;width:100%}details{margin:24px 0;font-size:11px}details li{margin-bottom:8px;line-height:1.5}.quiet{font-size:11px;border:0;text-decoration:underline;padding:8px 0}dialog{border:0;border-radius:20px;background:var(--bg);color:var(--ink);max-width:620px;padding:30px;box-shadow:0 20px 100px #0004}dialog::backdrop{background:#10271ecc;backdrop-filter:blur(5px)}dialog li,dialog>p{font-size:14px;line-height:1.7;margin-bottom:13px}.close{float:right;font-size:11px;margin-left:10px}#resetDialog button{margin:5px}@media(min-width:1400px){.edge.top .fixed+.fixed{margin-left:25px}.fixed{width:44px;height:44px}.edge.left{gap:22px}}@media(max-width:1100px){main{grid-template-columns:220px minmax(360px,1fr);gap:28px}aside{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr 1.4fr;gap:15px;align-items:start}aside>.eyebrow{grid-column:1}aside h2{grid-column:1}aside>.subtle{grid-column:1}#supply{grid-column:2;grid-row:1/5;grid-template-columns:repeat(3,1fr);margin:0}#supply button{max-height:80px}.challenge{grid-column:3;grid-row:1/5;margin:0}.piece.text{font-size:16px}.piece.object{font-size:35px}.edge.left{gap:5px}}@media(max-width:700px){header{padding:18px 20px}.brand{font-size:22px}.edition{display:none}main{padding:23px 15px;display:flex;flex-direction:column;gap:22px}.intro{display:contents}.intro>.eyebrow,.intro>h1,.intro>p,.rulebox{display:none}.players{order:0;margin:0;display:flex;gap:10px}.players>div{width:50%;border:1px solid #d4d8c9;padding:12px}.play{order:1}.turn{margin:0 6px 14px}.board-frame{padding:47px;border-radius:18px;max-width:580px;margin:auto}.fixed{width:36px;height:36px;font-size:8px}.fixed small{font-size:6px}.edge.top{left:calc(47px + (100% - 94px) * .4);top:5px;gap:3px}.edge.top .fixed+.fixed{margin-left:3px}.edge.bottom{left:calc(47px + (100% - 94px) * .4);bottom:5px}.edge.left{top:calc(47px + (100% - 94px) * .4);left:5px;gap:3px}.edge.right{right:5px;top:calc(47px + (100% - 94px) * .4)}#board{gap:4px}.piece.text{font-size:clamp(10px,3.3vw,19px)}.piece.object{font-size:29px}.piece.object .avatar{transform:scale(.8)}.cell.stack .piece{transform:scale(.55)}aside{display:block;order:2}aside>.eyebrow{margin-bottom:7px}aside h2{font-size:19px}#supply{grid-template-columns:repeat(6,1fr);gap:6px;margin:14px 0}#supply button{padding:4px}#supply .piece{font-size:clamp(10px,2.8vw,18px)}.challenge{margin-top:20px;padding-top:15px}.challenge p{display:inline-block;width:65%;margin:0}.challenge .eyebrow{display:block;margin-bottom:8px}.challenge button{width:34%;vertical-align:top}.controls{flex-wrap:wrap}.arrows{margin-left:auto}dialog{max-width:95vw;padding:23px}.intro>.subtle{display:none}}
+.brand #app-version{display:inline-block;margin-left:.45em;font-size:11px;font-weight:500;letter-spacing:0;vertical-align:baseline;opacity:.7;white-space:nowrap}
+/* Keep the printed rules exactly aligned with their board squares. */
+.board-frame{--pad:53px;--grid-gap:5px;--fixed-size:42px}.edge{display:contents}.edge .fixed{position:absolute;width:var(--fixed-size);height:var(--fixed-size);margin:0!important;transform:translate(-50%,-50%);font-family:'Space Grotesk',sans-serif}.edge.top .fixed{top:calc(var(--pad)/2);left:50%}.edge.top .fixed+.fixed{left:calc(50% + (100% - 2 * var(--pad) + var(--grid-gap))/5)}.edge.bottom .fixed{top:calc(100% - var(--pad)/2);left:50%}.edge.left .fixed{left:calc(var(--pad)/2);top:50%}.edge.left .fixed+.fixed{top:calc(50% + (100% - 2 * var(--pad) + var(--grid-gap))/5)}.edge.right .fixed{left:calc(100% - var(--pad)/2);top:50%}.piece.object.flag{color:#e4ec9b;font-size:clamp(28px,4vw,51px)}
+@media(max-width:700px){.board-frame{--pad:47px;--grid-gap:4px;--fixed-size:36px}.piece.object.flag{font-size:34px}}
+
+/* Fixed terrain and printed edge rules. Figures and words stay above the water. */
+.board-frame{overflow:hidden}.river{position:absolute;inset:var(--pad);width:calc(100% - 2 * var(--pad));height:calc(100% - 2 * var(--pad));overflow:visible;pointer-events:none;z-index:1;color:#7bbccb}#board{position:relative}.cell>.piece{position:relative;z-index:2}.cell>.badge{z-index:3}.edge .fixed{z-index:4}.edge .fixed.noun{font-size:14px;line-height:.9}.edge .fixed.property{font-size:11px;line-height:1.05}.noun-name{display:block}.noun-right,.noun-down{position:absolute;font-size:12px}.noun-right{right:2px;top:calc(50% - 6px)}.noun-down{bottom:0;left:calc(50% - 4px)}.edge.top .fixed+.fixed{left:calc(50% + var(--fixed-size) + 6px)}.edge.left .fixed+.fixed{top:calc(50% + var(--fixed-size) + 6px)}.owner-arrow{position:absolute;z-index:4;font:bold 28px/1 sans-serif;transform:translate(-50%,-50%);pointer-events:none}.baba-owner{color:#d9e787}.keke-owner{color:#ed825e}.edge.top .owner-arrow{top:calc(var(--pad)/2);left:calc(50% + 2 * var(--fixed-size) + 1px)}.edge.left .owner-arrow{left:calc(var(--pad)/2);top:calc(50% + 2 * var(--fixed-size) + 1px)}.edge.right .owner-arrow{left:calc(100% - var(--pad)/2);top:calc(50% + var(--fixed-size) - 5px)}.edge.bottom .owner-arrow{left:calc(50% - var(--fixed-size) + 5px);top:calc(100% - var(--pad)/2)}
+@media(max-width:700px){.edge .fixed.noun{font-size:12px}.edge .fixed.property{font-size:10px}.owner-arrow{font-size:24px}}
+
+/* Match the rulebook noun artwork on the board and in the supply. */
+.piece.text.rock,.piece.text.flag{background:transparent}.noun-art{display:block;width:100%;height:100%;overflow:visible}.noun-lettering{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-size:31px;font-weight:900;letter-spacing:-1.5px}
+
+/* Complete both character silhouettes in the player panels and on the board. */
+.avatar .extra-part{position:absolute;display:block;pointer-events:none;background:inherit}.avatar.baba .extra-part{left:18px;top:-8px;width:6px;height:10px;border:2px solid #24392f;border-bottom:0;border-radius:5px}.avatar.keke:before,.avatar.keke .extra-part{top:auto;bottom:-8px;width:5px;height:9px;border:2px solid #24392f;border-top:0;border-radius:0 0 5px 5px}.avatar.keke .extra-part{left:15px}
+.piece.text.win{background:transparent}.property-art{display:block;width:100%;height:100%}.property-is,.property-win{fill:#18252a;font-family:'Comic Sans MS','Arial Rounded MT Bold',sans-serif;font-weight:900}.property-is{font-size:22px}.property-win{font-size:35px;letter-spacing:-2px}
+
+/* Equal-sized Keke legs; four small Baba feet. Explicit box sizing also
+   applies to pseudo-elements so both Keke legs have identical outer bounds. */
+.avatar.keke::before,.avatar.keke .extra-part{box-sizing:border-box;width:6px;height:10px;top:auto;bottom:-8px;background:#ed825e;border:2px solid #24392f;border-top:0;border-radius:0 0 4px 4px}.avatar.keke::before{left:3px}.avatar.keke .extra-part{left:15px}
+.avatar.baba .baba-foot{position:absolute;display:block;box-sizing:border-box;width:5px;height:7px;bottom:-6px;background:#fffdf4;border:1.5px solid #24392f;border-top:0;border-radius:0 0 3px 3px;pointer-events:none}.avatar.baba .foot-0{left:1px}.avatar.baba .foot-1{left:8px}.avatar.baba .foot-2{right:8px}.avatar.baba .foot-3{right:1px}
+
+/* Two close foot pairs, with a wider gap between rear and front legs. */
+.avatar.baba .baba-foot{width:5px}.avatar.baba .foot-0{left:1px;right:auto}.avatar.baba .foot-1{left:7px;right:auto}.avatar.baba .foot-2{left:auto;right:7px}.avatar.baba .foot-3{left:auto;right:1px}
+#concede{margin-top:8px;width:100%;font-size:11px}
+
+.scenario{border-bottom:1px solid #ccd2c1;margin-bottom:24px;padding-bottom:15px}.scenario p{font-size:11px;line-height:1.6}.scenario #permanent{color:#b64032;font-weight:700}.scenario #river-note{color:#658b96}.hot-river{stroke:#e38354;filter:drop-shadow(0 0 3px #e95d6855)}.controls{flex-wrap:wrap}.controls select{font:inherit;border:1px solid #bdc9b8;border-radius:5px;padding:6px;background:var(--bg);color:var(--ink)}.pull-length,#fast-controls{font-size:11px}.pull-length{flex-basis:100%}.square-lettering{font-size:27px}.property-win.long-property{font-size:20px;letter-spacing:-1px}#level-options{display:grid;gap:13px;margin:22px 0}#level-options label{display:flex;gap:12px;font-size:13px}#level-help{border-top:1px solid #ccd2c1;padding-top:14px}#level-help p{font-size:13px;line-height:1.6}#effect-order{padding-left:20px}#effect-order li{display:flex;gap:4px;align-items:center;margin-bottom:5px}#effect-order li span{flex:1}#effect-order button{padding:3px 8px}#reaction-settings>p{font-size:11px;line-height:1.5}#fast-controls[hidden]{display:none}@media(max-width:1100px){aside .scenario{grid-column:1/-1}aside #supply{grid-row:auto}aside .challenge{grid-row:auto}}@media(max-width:700px){.scenario{margin-top:6px}.controls{gap:10px}.challenge{display:block}.challenge p:not(.eyebrow){display:block;width:auto;margin-bottom:10px}.challenge button{width:100%}}
+
+@media(min-width:701px) and (max-width:1100px){aside #supply{grid-row:2/span 5}aside .challenge{grid-row:2/span 5}aside>details{grid-row:8}aside>.quiet{grid-row:8}}
+
+.controls input[type=number]{width:58px;padding:6px;font:inherit;border:1px solid #bdc9b8;border-radius:5px;color:var(--ink);background:var(--bg)}
+/* Board figures scale with the available square, including ears and paired feet. */
+.cell{container-type:inline-size;--object-size:68cqw}
+.cell>.piece.object{width:88%;height:88%;min-width:0;flex:0 1 88%;font-size:var(--object-size);line-height:1}
+.cell>.piece.object.rock,.cell>.piece.object.flag{font-size:calc(var(--object-size) * 1.1)}
+.cell .piece.object .avatar{font-size:inherit;transform:none;width:1em;height:.794em;border-width:.059em;flex-shrink:0}
+.cell .piece.object .avatar::after{right:.059em;top:0;font-size:.47em;letter-spacing:.029em}
+.cell .piece.object .avatar.baba::before,.cell .piece.object .avatar.baba .extra-part{box-sizing:border-box;width:.235em;height:.353em;top:-.235em;bottom:auto;border:.059em solid #24392f;border-bottom:0;border-radius:.147em;background:#fffdf4}
+.cell .piece.object .avatar.baba::before{left:.088em}
+.cell .piece.object .avatar.baba .extra-part{left:.529em}
+.cell .piece.object .avatar.baba .baba-foot{width:.147em;height:.206em;bottom:-.176em;border-width:.044em;border-top:0;border-radius:0 0 .088em .088em}
+.cell .piece.object .avatar.baba .foot-0{left:.029em;right:auto}
+.cell .piece.object .avatar.baba .foot-1{left:.206em;right:auto}
+.cell .piece.object .avatar.baba .foot-2{left:auto;right:.206em}
+.cell .piece.object .avatar.baba .foot-3{left:auto;right:.029em}
+.cell .piece.object .avatar.keke{width:.765em;height:.971em}
+.cell .piece.object .avatar.keke::before,.cell .piece.object .avatar.keke .extra-part{box-sizing:border-box;width:.176em;height:.294em;top:auto;bottom:-.235em;border:.059em solid #24392f;border-top:0;border-radius:0 0 .118em .118em}
+.cell .piece.object .avatar.keke::before{left:.088em}
+.cell .piece.object .avatar.keke .extra-part{left:.441em}
+.cell.stack{--object-size:36cqw}
+.cell.stack>.piece{flex:1 1 0;min-width:0;width:0;height:90%;margin:0;transform:none}
+.cell.stack:has(>.piece:nth-of-type(3)){--object-size:24cqw}
+.cell.stack:has(>.piece:nth-of-type(4)){--object-size:18cqw}
+.cell.stack:has(>.piece:nth-of-type(5)){--object-size:14cqw}
+
+.header-actions{display:flex;gap:10px;align-items:center}#choose-levels{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:700}#choose-levels:hover{background:#405c47}@media(max-width:700px){header{flex-wrap:wrap;gap:12px}.header-actions{flex-basis:100%;justify-content:flex-end}.header-actions button{font-size:12px}}
+
+.move-distance{position:absolute;top:4px;right:5px;z-index:3;min-width:16px;padding:2px 4px;border-radius:5px;font-size:10px;font-weight:700;line-height:1;color:#e9f2c2;background:#24392f}.fast-hint{font-size:12px;line-height:1.5;margin:0 0 8px}#fast-controls{flex-basis:100%}
+
+#board{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.cell.can-move{touch-action:none;cursor:grab}#board.dragging,#board.dragging .cell{cursor:grabbing}#board.dragging .cell.selected>.piece{opacity:.65}.cell.drag-over{box-shadow:inset 0 0 0 3px var(--pink);background:#59734a}.controls #pull-count{width:72px}
+
+/* Readable active rules and a compact landscape layout for iPad play. */
+.rulebox>.eyebrow{font-size:12px;letter-spacing:1.2px;color:#344c3c}#rules{gap:9px}#rules>.rule{flex-basis:100%;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;line-height:1.4;letter-spacing:.15px;padding:10px 12px;border-radius:8px;border:1px solid #c8d1ba;border-left:5px solid #71884a;background:#e8eddd;color:#20392c}
+@media(min-width:900px) and (max-width:1366px) and (orientation:landscape){
+ header{padding:15px 24px;gap:16px}main{padding:20px 24px;grid-template-columns:minmax(170px,.8fr) minmax(380px,1.9fr) minmax(190px,.9fr);gap:20px;align-items:start}
+ .intro>h1,.intro>p:not(.eyebrow):not(.subtle){display:none}.intro>.eyebrow{margin-bottom:12px}.players{margin:0 0 20px}.players>div{padding:12px 9px;gap:12px}.rulebox{padding-top:16px}.intro>.subtle{font-size:9px!important;margin-top:18px}
+ main>aside{display:block;grid-column:auto;padding-top:0}aside .scenario{margin-bottom:18px;padding-bottom:10px}aside .scenario p{font-size:10px}aside h2{font-size:19px}aside .subtle{font-size:11px!important}
+ aside #supply{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0}aside #supply button{padding:4px;max-height:none}aside .challenge{margin-top:18px;padding-top:16px}aside .challenge p:not(.eyebrow){font-size:11px}aside details{margin:16px 0}.turn{margin-bottom:12px}.turn h2{font-size:19px}#message{font-size:12px;line-height:1.5;margin-bottom:0}
+}
+@media(max-width:700px){.rulebox{display:block;order:2}.rulebox>.eyebrow{font-size:12px}#rules>.rule{font-size:16px}.intro>.subtle{display:none}aside{order:3}}
+
+/* Rule colours identify the player controlling the affected objects. */
+#rules>.owner-baba{background:#e8eddd;border-color:#c8d1ba;border-left-color:#71884a}
+#rules>.owner-keke{background:#f8e5d7;border-color:#e7c8af;border-left-color:#d78b57}
+#rules>.owner-both{background:#e1edf7;border-color:#bed1e3;border-left-color:#7099bb}
+#rules>.owner-none{background:#eeeee7;border-color:#d4d7cd;border-left-color:#979e91}
+.rule-legend{display:flex;gap:7px 12px;flex-wrap:wrap;margin:0 0 14px;font-size:11px;line-height:1.4;color:#4d5b4d}.rule-legend>span{display:inline-flex;align-items:center;gap:5px}.rule-legend>span::before{content:'';width:11px;height:11px;border:1px solid #abb59a;border-radius:3px;background:#e8eddd}.rule-legend>.legend-keke::before{background:#f8e5d7;border-color:#d78b57}.rule-legend>.legend-both::before{background:#e1edf7;border-color:#7099bb}.rule-legend>.legend-none::before{background:#eeeee7;border-color:#979e91}#p1.active{background:#f8e5d7}
+
+/* A winning rule always uses the IS WIN tile colour, overriding ownership. */
+#rules>.rule-win{background:#c82c8b;border-color:#b32278;border-left-color:#92185d;color:#fff}.rule-legend>.legend-win::before{background:#c82c8b;border-color:#b32278}
+
+.language-choice{display:flex;align-items:center;gap:12px;margin:20px 0;padding:14px;border:1px solid #c8d1ba;border-radius:9px;background:#e8eddd;font-size:14px;font-weight:700}.language-choice input{width:18px;height:18px;accent-color:#526f3c}[data-piece-language=fi] .edge .fixed.property{font-size:10px}
+
+.player-settings{border:1px solid #c8d1ba;border-radius:9px;padding:14px;margin:18px 0}.player-settings legend{font-size:13px;font-weight:700}.player-settings label{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:7px 0;font-size:14px}.player-settings select{font:inherit;border:1px solid #bdc9b8;border-radius:5px;padding:7px 12px;background:var(--bg);color:var(--ink)}#ai-panel{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 12px;padding:10px 12px;border-radius:8px;background:#e4e9d7;font-size:12px}#ai-panel[hidden]{display:none}#ai-pause{font-size:11px;padding:7px 10px;flex-shrink:0}.cell:disabled{opacity:1;cursor:wait}#board[aria-busy=true]{cursor:wait}
+
+/* Worlds share one two-level allowance. Keep each world easy to scan on iPad. */
+#level-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#level-options fieldset{min-width:0;margin:0;padding:14px;border:1px solid #bdc9b8;border-radius:9px}
+#level-options legend{padding:0 6px;font-size:13px;font-weight:700}
+#level-options label{align-items:center;margin:12px 0;line-height:1.4}
+#level-options input{flex-shrink:0;width:18px;height:18px;accent-color:#526f3c}
+#level-options label:has(input:disabled){opacity:.45}
+#level-count{font-weight:700;margin:18px 0 0;color:#405c47}
+#resetDialog{width:620px;max-height:90dvh;overflow-y:auto}
+#thirsty-options{display:grid;gap:10px;margin:20px 0}
+#thirsty-options button{text-align:left;font-weight:700;padding:14px}
+@media(max-width:520px){#level-options{grid-template-columns:1fr}}
+@media(min-width:701px) and (max-height:850px){
+ #resetDialog{width:700px;padding:20px}
+ #resetDialog h2{margin:0 0 12px;font-size:21px}
+ #resetDialog>.language-choice{margin:12px 0;padding:10px}
+ #resetDialog>p{font-size:13px;line-height:1.5;margin:8px 0}
+ #resetDialog .player-settings{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:12px 0;padding:8px 12px}
+ #resetDialog .player-settings label{margin:2px 0;gap:10px}
+ #resetDialog #level-options{margin:12px 0}
+ #resetDialog #level-options fieldset{padding:8px 12px}
+ #resetDialog #level-options label{margin:9px 0}
+}
+
+.offline-panel{margin-top:16px;padding:12px 0;border-top:1px solid #d2d8c7;font-size:11px;line-height:1.6;color:var(--muted)}.offline-panel[hidden]{display:none}.offline-panel button{margin-top:8px;font-size:11px}#update-app[hidden]{display:none}body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+</style><body>
+<header><a class="brand" href="./">BABA <span>×</span> KEKE <small id="app-version"></small></a><div class="edition">LAUTAPELI <span>WORLDS 1–2 · 10 LEVELS</span></div><div class="header-actions"><button id="choose-levels">Valitse tasot</button><button id="help">Miten pelataan?</button></div></header>
+<main><section class="intro"><p class="eyebrow">WORLDS 1–2 · 10 LEVELS</p><h1>Säännöt ovat<br><em>sinun siirtosi.</em></h1><p>Muuta sääntöjä. Siirrä kiviä. Ehdi ensin.</p><div class="players"><div id="p0"><i class="avatar baba"><span class="extra-part"></span><span class="baba-foot foot-0"></span><span class="baba-foot foot-1"></span><span class="baba-foot foot-2"></span><span class="baba-foot foot-3"></span></i><span>BABA<small>Pelaaja 1</small></span><b id="b0">VUORO</b></div><div id="p1"><i class="avatar keke"><span class="extra-part"></span></i><span>KEKE<small>Pelaaja 2</small></span><b id="b1"></b></div></div><div class="rulebox"><p class="eyebrow">VOIMASSA OLEVAT SÄÄNNÖT</p><div id="rules"></div></div><p class="subtle">Epävirallinen sääntökirjoihin perustuva selainversio. Pelisuunnittelu: Hempuli / Arvi Teikari & Peter C. Hayward.</p></section>
+<section class="play"><div class="turn"><div><p class="eyebrow" id="turnLabel"></p><h2 id="status"></h2></div><div id="dots"></div></div><div id="ai-panel" hidden><span id="ai-info" role="status"></span><button id="ai-pause">Keskeytä AI</button></div><div class="board-frame"><div class="edge top"><span class="fixed noun keke-word" aria-label="KEKE, nuolet oikealle ja alas"><span class="noun-name">KE<br>KE</span><span class="noun-right">▸</span><span class="noun-down">▾</span></span><span class="fixed property" aria-label="KEKE IS YOU, Keken pelaaja">IS<br>YOU</span><span class="owner-arrow keke-owner" aria-hidden="true">↘</span></div><div class="edge left"><span class="fixed noun" aria-label="BABA, nuolet oikealle ja alas"><span class="noun-name">BA<br>BA</span><span class="noun-right">▸</span><span class="noun-down">▾</span></span><span class="fixed property" aria-label="BABA IS YOU, Baban pelaaja">IS<br>YOU</span><span class="owner-arrow baba-owner" aria-hidden="true">↙</span></div><svg class="river" viewBox="0 0 500 500" aria-hidden="true"><path id="river-path" fill="none" stroke="currentColor" stroke-width="23" stroke-linecap="round" stroke-linejoin="round" /></svg><div id="board" role="grid" aria-label="5 kertaa 5 pelilauta"></div><div class="edge right"><span class="fixed property" aria-label="IS YOU, Keken pelaaja">IS<br>YOU</span><span class="owner-arrow keke-owner" aria-hidden="true">↘</span></div><div class="edge bottom"><span class="fixed property" aria-label="IS YOU, Baban pelaaja">IS<br>YOU</span><span class="owner-arrow baba-owner" aria-hidden="true">↙</span></div></div><p id="message" role="status" aria-live="polite">Valitse Baba ja liiku tai valitse laatta varastosta.</p></section>
+<aside><div class="scenario"><p class="eyebrow">PELISSÄ MUKANA</p><p id="scenario-name"></p><p id="permanent"></p><p id="river-note"></p></div><p class="eyebrow">LAATTAVARASTO</p><h2>Tee uusi sääntö.</h2><p class="subtle">Valitse laatta ja sitten tyhjä ruutu oman hahmon vierestä.</p><div id="supply"></div><div class="challenge"><p class="eyebrow">UMPIKUJA?</p><p>Haasta vastustaja voittamaan kymmenellä toiminnolla.</p><button id="challenge">Haasta vastustaja ↗</button><button id="concede" hidden>Myönnä tappio</button></div><details id="reaction-settings"><summary>Reaktioiden järjestys</summary><p>Erilliset reaktiot tapahtuvat samanaikaisesti. Toisiinsa vaikuttavien reaktioiden ja janoisten esineiden ratkaisujärjestyksen päättää vuorossa oleva pelaaja. Nosta ensin ratkaistavat esineet ylemmäs ennen toimintoa.</p><ol id="effect-order"></ol></details><details><summary>Viimeiset toiminnot</summary><ol id="log"></ol></details><button class="quiet" id="reset">Uusi peli</button><div id="offline-panel" class="offline-panel" hidden><span id="offline-status" role="status" aria-live="polite"></span><button id="update-app" hidden>Päivitä peli</button></div></aside></main>
+<dialog id="helpDialog"><button class="close" onclick="this.parentElement.close()">Sulje ×</button><p class="eyebrow">DEFAULT + WORLDS 1–2</p><h2>Näin pelaat</h2><ol><li>Toiminnot saa tehdä missä järjestyksessä tahansa: myös aseta + aseta on sallittu. Aloittaja tekee yhden toiminnon. Sen jälkeen vuorossa on aina kaksi toimintoa. Jos et voi tehdä kahta toimintoa, häviät, ellet haasta vastustajaa.</li><li>Liikuta yhtä omaa hahmoa yhden ruudun verran tai aseta laatta tyhjään viereiseen ruutuun. Ei vinottain.</li><li>Kaikki esineet ja sanalaatat työntyvät. Tavallinen työntö onnistuu vain, jos seuraava ruutu on vapaa. STRONG sallii työntöketjut ja palojen työntämisen reunan yli.</li><li>Raahaa hallitsemasi esine kohderuutuun hiiri tai sormi alhaalla, kun haluat vetää lähtöruudun vastakkaisella puolella olevat esineet mukaasi. Napsauttamalla tehty siirto ei vedä. FAST vetää oletuksena koko matkan. Jos haluat lopettaa vedon kesken, pysähdy hetkeksi väliruutuun, kunnes veto lukittuu siihen, ja jatka sitten raahausta loppuruutuun.</li><li>ROCK- tai FLAG-laatan nuoli osoittaa oikealle ja alas. Vieressä oleva IS WIN tekee esineistä voittokohteita. Reunan IS YOU antaa hallinnan sen pelaajalle.</li><li>Voitat, kun oma esineesi ja toinen WIN-esine ovat samassa ruudussa toiminnon lopussa. Jos molemmat voittavat samalla toiminnolla, toiminnon tehnyt voittaa.</li><li>Vuoron lopussa lauta ei saa olla sama kuin vuoron alussa tai vastustajan edellisen vuoron alussa.</li><li>Vuoron alussa voit haastaa: vastustaja saa viisi peräkkäistä vuoroa eli kymmenen toimintoa voittaakseen. Muuten sinä voitat.</li></ol><p><strong>Asenna offline-peli:</strong> avaa pelin HTTPS-osoite Safarissa, valitse Jaa → Lisää Koti-valikkoon. Odota ensin ilmoitusta ”Valmis offline-peliin”. Tämän jälkeen peli ja AI toimivat ilman verkkoyhteyttä. Uusi versio otetaan käyttöön Päivitä peli -painikkeesta. Keskeneräinen peli säilyy samalla laitteella ja samassa selaimessa.</p><div id="level-help"></div><p>World 1:n Level 1 lisää yhden ROCK- ja yhden FLAG-sanalaatan. Mukana on yhteensä kaksi kumpaakin sekä kaksi IS WIN -laattaa. Joki on kiinteää maastoa. Level 1:ssä sillä ei vielä ole vaikutusta. Tasolla 3 pysyvä RIVER IS HOT tekee jokiruuduista kuumia.</p></dialog>
+<dialog id="resetDialog"><h2>Tasot, pelaajat ja kieli</h2><label class="language-choice"><input type="checkbox" id="finnish-pieces"> Suomenkieliset pelimerkit ja lauta</label><p>Aloituspainike aloittaa uuden pelin valituilla tasoilla. DEFAULT on aina mukana. Valitse lisäksi enintään kaksi tasoa; maailmoja voi yhdistellä vapaasti. Pelaajaa ja tekstikieltä voi vaihtaa myös kesken pelin.</p><fieldset class="player-settings"><legend>Pelaajat</legend><label>Baba <select id="controller-0"><option value="human">Ihminen</option><option value="ai">AI</option></select></label><label>Keke <select id="controller-1"><option value="human">Ihminen</option><option value="ai">AI</option></select></label></fieldset><p id="level-count" role="status" aria-live="polite"></p><div id="level-options"></div><button id="start0">Baba aloittaa</button><button id="start1">Keke aloittaa</button><button onclick="this.parentElement.close()">Sulje</button></dialog>
+<dialog id="thirstyDialog" aria-labelledby="thirsty-title"><h2 id="thirsty-title">Valitse reitti joelle</h2><p id="thirsty-description"></p><div id="thirsty-options"></div><button id="cancel-thirsty">Peruuta toiminto</button></dialog>
+<script id="ai-worker-source" type="text/plain">const APP_VERSION='1.1.0';
+const RIVER_CELLS=Object.freeze([[0,0],[0,1],[1,1],[2,1],[2,2],[2,3],[3,3],[4,3],[4,4]].map(Object.freeze));
+const isRiver=(x,y)=>RIVER_CELLS.some(([a,b])=>a===x&&b===y);
+const dirs=[[0,-1],[1,0],[0,1],[-1,0]];
+const LEVELS={1:'MORE ROCK, MORE FLAG',2:'FAST',3:'HOT / MELT',4:'CURIOUS',5:'SQUARE',21:'WIN HARDER',22:'THIRSTY',23:'STRONG',24:'SCARED',25:'SHEEP'};
+const MAX_LEVELS=2;
+const levelWorld=id=>id>=21?2:1;
+const levelNumber=id=>id>=21?id-20:id;
+const normalizeLevels=levels=>[...new Set((Array.isArray(levels)?levels:[]).map(Number))].filter(id=>LEVELS[id]).slice(0,MAX_LEVELS).sort((a,b)=>a-b);
+const nouns=new Set(['baba','keke','rock','flag','square','river']);
+const props=new Set(['win','fast','hot','melt','curious','thirsty','strong','scared','sheep']);
+const clone=s=>JSON.parse(JSON.stringify(s));
+const inside=(x,y)=>x>=0&&x<5&&y>=0&&y<5;
+const at=(s,x,y)=>s.pieces.filter(p=>p.x===x&&p.y===y);
+function initial(starter=0,levels=[1]){
+ levels=normalizeLevels(levels);
+ const pieces=[{id:'baba',type:'baba',x:0,y:4},{id:'keke',type:'keke',x:4,y:0},{id:'r1',type:'rock',x:0,y:0},{id:'r2',type:'rock',x:4,y:4},{id:'flag',type:'flag',x:2,y:2}];
+ const add=(id,word)=>pieces.push({id,type:'text',word,x:null,y:null});
+ add('t0','rock');if(levels.includes(1))add('t1','rock');add('t2','flag');if(levels.includes(1))add('t3','flag');add('t4','win');add('t5','win');
+ for(const [level,words]of [[2,['fast']],[3,['hot','melt']],[4,['curious']],[5,['square']],[22,['thirsty']],[23,['strong']],[24,['scared']],[25,['sheep','sheep']]])if(levels.includes(level))for(const w of words)add(pieces.some(p=>p.id===w)?w+'2':w,w);
+ if(levels.includes(21)){add('w2-win0','win');add('w2-win1','win');}
+ return {version:3,levels,pieces,player:starter,left:1,turn:0,start:null,previous:null,winner:null,challenge:null,log:[],effectOrder:[],controllers:['human','human']};
+}
+const signature=s=>JSON.stringify(s.pieces.map(p=>[p.type==='text'?'w:'+p.word:p.type,p.x,p.y]).sort());
+function restore(value){
+ if(!value?.pieces)return initial();const s=clone(value);s.levels??=[1];s.effectOrder??=[];s.controllers=[0,1].map(i=>s.controllers?.[i]==='ai'?'ai':'human');
+ const convert=str=>{if(!str)return str;try{return JSON.stringify(JSON.parse(str).map(([key,x,y])=>{const p=s.pieces.find(p=>p.id===key);return [p?(p.type==='text'?'w:'+p.word:p.type):key,x,y];}).sort());}catch{return null;}};
+ if(!s.version||s.version<2){s.start=convert(s.start);s.previous=convert(s.previous);}
+ const levels=normalizeLevels(s.levels);
+ if(levels.length!==s.levels.length){const fresh=initial(s.player,levels);fresh.controllers=s.controllers;fresh.log=['Vanha tasoyhdistelmä rajattiin kahteen tasoon. Uusi peli aloitettu.'];return fresh;}
+ s.levels=levels;s.version=3;return s;
+}
+function rules(s){
+ const r={baba:new Set(),keke:new Set(),rock:new Set(),flag:new Set(),square:new Set(),river:new Set()};
+ const activeSquares=new Set();Object.defineProperty(r,'activeSquares',{value:activeSquares});
+ const ns=[{word:'baba',x:-1,y:2},{word:'keke',x:2,y:-1},...s.pieces.filter(p=>p.x!==null&&p.type==='text'&&nouns.has(p.word))];
+ const ps=[{word:'you0',x:-1,y:3},{word:'you0',x:2,y:5},{word:'you1',x:3,y:-1},{word:'you1',x:5,y:2},...s.pieces.filter(p=>p.x!==null&&p.type==='text'&&props.has(p.word))];
+ for(const n of ns)for(const p of ps)if((p.x===n.x+1&&p.y===n.y)||(p.x===n.x&&p.y===n.y+1)){r[n.word].add(p.word);if(p.id)activeSquares.add(p.id);}
+ if(s.levels?.includes(3))r.river.add('hot');if(s.levels?.includes(4))r.flag.add('curious');
+ for(const [level,prop]of [[22,'thirsty'],[24,'scared'],[25,'sheep']])if(s.levels?.includes(level))r.rock.add(prop);
+ return r;
+}
+function has(s,p,prop,r=rules(s)){return (p.type==='text'?r.activeSquares.has(p.id)&&r.square.has(prop):r[p.type]?.has(prop))||false;}
+const share=(s,a,b,r)=>(has(s,a,'win',r)&&(has(s,b,'you0',r)||has(s,b,'you1',r)))||(has(s,b,'win',r)&&(has(s,a,'you0',r)||has(s,a,'you1',r)))||(has(s,a,'hot',r)&&has(s,b,'melt',r))||(has(s,b,'hot',r)&&has(s,a,'melt',r));
+function winner(s,actor){const r=rules(s),w=[];for(let pl=0;pl<2;pl++)if(s.pieces.some(p=>p.x!==null&&has(s,p,'you'+pl,r)&&at(s,p.x,p.y).some(q=>q.id!==p.id&&has(s,q,'win',r))))w.push(pl);return w.includes(actor)?actor:w[0]??null;}
+const changes=(before,after)=>after.pieces.flatMap(p=>{const old=before.pieces.find(q=>q.id===p.id);return p.x===old.x&&p.y===old.y?[]:[{id:p.id,from:[old.x,old.y],to:[p.x,p.y]}];});
+const commit=(s,trial)=>{for(const p of trial.pieces)Object.assign(s.pieces.find(q=>q.id===p.id),p);s.log=trial.log;};
+
+// Plan on a private board: a blocked push or pull never leaves a partial move.
+function singleStep(s,id,dir,pull=false,r=rules(s)){
+ const p=s.pieces.find(p=>p.id===id);if(!p||p.x===null)return null;
+ const [dx,dy]=dirs[dir],ox=p.x,oy=p.y,tx=ox+dx,ty=oy+dy,strong=has(s,p,'strong',r);
+ if(!inside(tx,ty))return null;
+ const pushGroup=group=>{
+  const x=group[0].x+dx,y=group[0].y+dy;
+  if(!inside(x,y)){
+   if(!strong)return false;
+   for(const q of group){s.log.push(`${q.word??q.type} ajettiin reunan yli ja palautui varastoon.`);q.x=null;q.y=null;}return true;
+  }
+  const blocked=at(s,x,y).filter(q=>!group.includes(q)&&group.some(v=>!share(s,v,q,r)));
+  if(blocked.length&&(!strong||!pushGroup(blocked)))return false;
+  for(const q of group){q.x=x;q.y=y;}return true;
+ };
+ const pushed=at(s,tx,ty).filter(q=>!share(s,p,q,r));
+ if(pushed.length&&!pushGroup(pushed))return null;
+ p.x=tx;p.y=ty;
+ if(pull){
+  const pulled=at(s,ox-dx,oy-dy);
+  if(!strong&&pulled.some(q=>has(s,q,'scared',r)))return null;
+  const occupants=at(s,ox,oy).filter(q=>pulled.some(v=>!share(s,v,q,r)));
+  if(occupants.length&&!pushGroup(occupants))return null;
+  for(const q of pulled){q.x=ox;q.y=oy;}
+ }
+ return {pushed:pushed.length>0};
+}
+
+function step(s,id,dir,pull=false){
+ const before=clone(s),p=s.pieces.find(p=>p.id===id);if(!p||p.x===null)return null;
+ const r=rules(s),[dx,dy]=dirs[dir];
+ if(pull&&!has(s,p,'strong',r)&&at(s,p.x-dx,p.y-dy).some(q=>has(s,q,'scared',r)))return null;
+ const solo=clone(s),result=singleStep(solo,id,dir,pull,r);
+ const herd=s.pieces.filter(q=>q.x!==null&&has(s,q,'sheep',r));
+ const triggered=herd.some(q=>q.id===id||at(s,p.x+dx,p.y+dy).some(v=>v.id===q.id&&!share(s,p,v,r))||(pull&&q.x===p.x-dx&&q.y===p.y-dy)||(result&&changes(before,solo).some(ev=>ev.id===q.id)));
+ let trial=solo,pushed=result?.pushed??false;
+ if(triggered){
+  trial=clone(s);const moved=new Set();
+  // Front-to-back planning lets adjacent sheep vacate their squares together.
+  // A sheep pushed by another member is counted once, never triggered again.
+  const roots=[...new Set([id,...herd.map(q=>q.id)])].sort((a,b)=>{const pa=s.pieces.find(q=>q.id===a),pb=s.pieces.find(q=>q.id===b);return (pb.x-pa.x)*dx+(pb.y-pa.y)*dy||(a===id?-1:b===id?1:a.localeCompare(b));});
+  for(const root of roots){
+   if(moved.has(root))continue;
+   const next=clone(trial),one=singleStep(next,root,dir,root===id&&pull,r);if(!one)continue;
+   for(const ev of changes(trial,next))moved.add(ev.id);commit(trial,next);pushed||=one.pushed;
+  }
+  const movedPrimary=trial.pieces.find(q=>q.id===id);
+  if(movedPrimary.x!==p.x+dx||movedPrimary.y!==p.y+dy)return null;
+ }else if(!result)return null;
+ const events=changes(before,trial);commit(s,trial);return {events,pushed,before};
+}
+function melt(s){
+ // Removing a rule can remove HOT/MELT, so recompute between simultaneous waves.
+ while(true){const r=rules(s),dead=s.pieces.filter(p=>p.x!==null&&has(s,p,'melt',r)&&((r.river.has('hot')&&isRiver(p.x,p.y))||at(s,p.x,p.y).some(q=>q.id!==p.id&&has(s,q,'hot',r))));if(!dead.length)break;for(const p of dead){s.log.push(`${p.word??p.type} suli ja palautui varastoon.`);p.x=null;p.y=null;}}
+}
+function reactions(s,batch){
+ const queue=[batch],seen=new Set();let rounds=0;
+ while(queue.length){
+  const task=queue.shift();melt(s);const r=rules(s);let intents=[];
+  if(task.intents){
+   intents=task.intents.filter(i=>{const p=s.pieces.find(p=>p.id===i.id);return p?.x!==null&&p&&has(s,p,i.effect,r)&&(!task.continuing||i.effect==='scared'||has(s,p,'fast',r));});
+  }else{
+   const {events,before}=task;
+   for(const q of s.pieces.filter(p=>p.x!==null&&(has(s,p,'curious',r)||has(s,p,'scared',r)))){
+    const old=before.pieces.find(p=>p.id===q.id);if(!old||old.x===null)continue;
+    const wants=[];
+    if(has(s,q,'curious',r)){
+     const ds=new Set();for(const ev of events){if(ev.id===q.id||ev.to[0]===null)continue;const [fx,fy]=ev.from,[x,y]=ev.to;
+      if(y===old.y&&(fy!==old.y||fx===null)&&x!==old.x)ds.add(x>old.x?1:3);
+      if(x===old.x&&(fx!==old.x||fy===null)&&y!==old.y)ds.add(y>old.y?2:0);
+     }
+     if(ds.size===1)wants.push({id:q.id,dir:[...ds][0],effect:'curious',fast:has(s,q,'fast',r)});
+    }
+    if(has(s,q,'scared',r)){
+     const triggered=events.some(ev=>ev.id!==q.id&&ev.to[0]!==null&&Math.abs(ev.to[0]-q.x)+Math.abs(ev.to[1]-q.y)===1&&(ev.from[0]===null||Math.abs(ev.from[0]-old.x)+Math.abs(ev.from[1]-old.y)!==1));
+     if(triggered){
+      const ds=new Set(s.pieces.filter(p=>p.id!==q.id&&p.x!==null&&Math.abs(p.x-q.x)+Math.abs(p.y-q.y)===1).map(p=>p.x>q.x?3:p.x<q.x?1:p.y>q.y?0:2));
+      if(ds.size===1)wants.push({id:q.id,dir:[...ds][0],effect:'scared'});
+     }
+    }
+    if(new Set(wants.map(i=>i.dir)).size===1)intents.push(wants.find(i=>i.effect==='scared')??wants[0]);
+   }
+  }
+  if(!intents.length)continue;
+  const order=s.effectOrder??[];intents.sort((a,b)=>{const ai=order.indexOf(a.id),bi=order.indexOf(b.id);return (ai<0?999:ai)-(bi<0?999:bi)||a.id.localeCompare(b.id);});
+  const key=signature(s)+JSON.stringify(intents);if(seen.has(key))throw Object.assign(Error('Reaktiot muodostavat kehän. Valitse toinen ratkaisujärjestys.'),{loop:{ids:intents.map(i=>i.id)}});seen.add(key);if(++rounds>200)throw Object.assign(Error('Liian pitkä reaktioketju. Vaihda ratkaisujärjestystä.'),{loop:{ids:intents.map(i=>i.id)}});
+  // Compatible plans share the same starting board. Identical herd displacements
+  // from several leaders are merged, so each sheep moves once in this wave.
+  const plans=intents.map(i=>{const trial=clone(s),result=step(trial,i.id,i.dir);return {intent:i,trial,result};}).filter(p=>p.result);
+  let independent=true;const changed=new Map();
+  for(const plan of plans)for(const ev of plan.result.events){const other=changed.get(ev.id);if(other&&other.to.join(',')!==ev.to.join(','))independent=false;changed.set(ev.id,ev);}
+  // Also account for a stationary piece in a conflicting plan's destination.
+  for(const ev of changed.values())if(ev.to[0]!==null)for(const q of s.pieces){if(q.id===ev.id)continue;const pos=changed.get(q.id)?.to??[q.x,q.y];if(pos[0]===ev.to[0]&&pos[1]===ev.to[1]&&!share(s,s.pieces.find(p=>p.id===ev.id),q,r))independent=false;}
+  if(independent&&plans.length){
+   const prev=clone(s),all=[...changed.values()];for(const ev of all)Object.assign(s.pieces.find(q=>q.id===ev.id),{x:ev.to[0],y:ev.to[1]});
+   for(const plan of plans)for(const line of plan.trial.log.slice(prev.log.length))if(!s.log.slice(prev.log.length).includes(line))s.log.push(line);
+   melt(s);const continuing=plans.filter(p=>p.intent.effect==='scared'||p.intent.fast&&!p.result.pushed).map(p=>p.intent);
+   queue.unshift({events:all,before:prev},...(continuing.length?[{intents:continuing,continuing:true}]:[]));
+  }else if(plans.length)queue.unshift(...intents.map(intent=>({intents:[intent]})));
+ }
+}
+
+// Each thirsty object chooses a straight route to the first river square in
+// that direction. The actor may set effectOrder when movements interfere.
+function thirst(s,a,requireChoices){
+ const order=s.effectOrder??[],ids=s.pieces.filter(p=>p.x!==null&&has(s,p,'thirsty')).map(p=>p.id).sort((a,b)=>(order.indexOf(a)<0?999:order.indexOf(a))-(order.indexOf(b)<0?999:order.indexOf(b))||a.localeCompare(b));
+ for(const id of ids){
+  const p=s.pieces.find(p=>p.id===id);if(p.x===null||isRiver(p.x,p.y)||!has(s,p,'thirsty'))continue;
+  const options=[];
+  for(let dir=0;dir<4;dir++){
+   const [dx,dy]=dirs[dir];for(let distance=1;distance<5;distance++){const x=p.x+dx*distance,y=p.y+dy*distance;if(!inside(x,y))break;if(!isRiver(x,y))continue;
+    const trial=clone(s);if(step(trial,id,dir))options.push({dir,from:[p.x,p.y],to:[x,y]});break;
+   }
+  }
+  if(!options.length)continue;
+  const chosen=a.thirstyChoices?.find(choice=>choice.id===id);
+  if(requireChoices&&options.length>1&&!chosen){const error=new Error('Valitse janoisen reitti joelle.');error.routeChoice={id,options};throw error;}
+  const route=chosen?options.find(option=>option.dir===chosen.dir):options[0];if(!route)throw Error('Janoisen valittu reitti ei ole sallittu.');
+  for(let distance=0;distance<4&&p.x!==null&&!isRiver(p.x,p.y)&&has(s,p,'thirsty');distance++){
+   const result=step(s,id,route.dir);if(!result)break;reactions(s,result);
+  }
+ }
+}
+
+const permutations=a=>a.length<2?[a]:a.flatMap((x,i)=>permutations([...a.slice(0,i),...a.slice(i+1)]).map(p=>[x,...p]));
+// Official FAQ: an infinite loop makes the player who last acted lose. The actor may still choose another
+// resolution order, so the loss only applies when every order loops; otherwise the action is rejected as before.
+function raw(s,a,options={}){
+ const box={};
+ try{return rawCore(s,a,options,box);}
+ catch(error){
+  if(!error.loop||options.noLoopCheck||!box.n)throw error;
+  const ids=[...new Set([...s.pieces.filter(p=>p.type!=='text'&&p.x!==null).map(p=>p.id),...error.loop.ids])];
+  if(ids.length>6)throw error;
+  let avoidable=false;
+  for(const order of permutations(ids)){
+   try{rawCore({...s,effectOrder:order},a,{...options,noLoopCheck:true},{});avoidable=true;}catch(inner){if(!inner.loop)avoidable=true;}
+   if(avoidable)break;
+  }
+  if(avoidable)throw error;
+  const lost=box.n;lost.winner=1-s.player;lost.log.push('Ääretön silmukka: '+(s.player===0?'Baba':'Keke')+' menettää pelin, koska toimi viimeksi.');lost.log=lost.log.slice(-20);return lost;
+ }
+}
+function rawCore(s,a,{requireChoices=false}={},box={}){
+ if(s.winner!==null)return null;const n=clone(s),r=rules(s);box.n=n;
+ if(a.kind==='place'){
+  const p=n.pieces.find(p=>p.id===a.id);if(!p||p.x!==null||!inside(a.x,a.y)||at(s,a.x,a.y).length||!s.pieces.some(q=>q.x!==null&&has(s,q,'you'+s.player,r)&&Math.abs(q.x-a.x)+Math.abs(q.y-a.y)===1))return null;
+  p.x=a.x;p.y=a.y;reactions(n,{before:clone(s),events:[{id:p.id,from:[null,null],to:[a.x,a.y]}]});
+ }else if(a.kind==='move'){
+  const p=n.pieces.find(p=>p.id===a.id),steps=a.steps??1,pullSteps=a.pullSteps??(a.pull?steps:0);
+  if(!p||p.x===null||!has(s,p,'you'+s.player,r)||!dirs[a.dir]||!Number.isSafeInteger(steps)||steps<1||!Number.isInteger(pullSteps)||pullSteps<0||pullSteps>steps)return null;
+  if(steps>1&&!has(s,p,'fast',r))return null;
+  for(let i=0;i<steps;i++){
+   if(p.x===null)break;if(i>0&&(!has(n,p,'fast')||!has(n,p,'you'+s.player)))return null;
+   const result=step(n,p.id,a.dir,i<pullSteps);if(!result)return null;reactions(n,result);
+  }
+ }else return null;
+ n.winner=winner(n,s.player);
+ if(n.winner===null&&s.left===1){thirst(n,a,requireChoices);n.winner=winner(n,s.player);}
+ n.log=n.log.slice(-20);return n;
+}
+function* candidates(s){
+ const r=rules(s);for(const p of s.pieces){if(p.x===null){const targets=new Set();for(const q of s.pieces.filter(q=>q.x!==null&&has(s,q,'you'+s.player,r)))for(const [dx,dy]of dirs){const x=q.x+dx,y=q.y+dy;if(inside(x,y)&&!at(s,x,y).length&&!targets.has(x+','+y)){targets.add(x+','+y);yield {kind:'place',id:p.id,x,y};}}}
+ else if(has(s,p,'you'+s.player,r))for(let dir=0;dir<4;dir++){const [dx,dy]=dirs[dir],behind=at(s,p.x-dx,p.y-dy).length>0;for(const steps of (has(s,p,'fast',r)?[...new Set([1,2,3,4,s.fastLimit??4])]:[1]))for(const pullSteps of (behind?[...new Set([0,1,2,3,4,steps,s.fastPull??1])].filter(n=>n<=steps):[0]))yield {kind:'move',id:p.id,dir,steps,pullSteps,pull:pullSteps>0};}}
+}
+const validEnd=(s,n)=>signature(n)!==(s.start??signature(s))&&signature(n)!==s.previous;
+function* variants(s,a){
+ const pending=[a],seen=new Set();while(pending.length){const action=pending.pop();let state;
+  try{state=raw(s,action,{requireChoices:true});}catch(error){if(error.routeChoice){const {id,options}=error.routeChoice;for(const route of [...options].reverse())pending.push({...action,thirstyChoices:[...(action.thirstyChoices??[]),{id,...route}]});}continue;}
+  if(state){const key=signature(state)+'|'+state.winner;if(!seen.has(key)){seen.add(key);yield {action,state};}}
+ }
+}
+function validate(s,n,lookAhead){if(!n)return null;if(n.winner!==null)return n;if(s.left===1&&!validEnd(s,n))return null;if(s.left===2&&lookAhead){const second={...n,left:1,start:s.start??signature(s)};let found=false;for(const b of candidates(second)){for(const {state:end}of variants(second,b))if(end.winner!==null||validEnd(second,end)){found=true;break;}if(found)break;}if(!found)return null;}return n;}
+function legal(s,a,lookAhead=true){let n;try{n=raw(s,a);}catch{return null;}return validate(s,n,lookAhead);}
+function actions(s){const result=[];for(const a of candidates(s))for(const {action,state}of variants(s,a))if(validate(s,state,true))result.push(action);return result;}
+function act(s,a){const n=legal(s,a);if(!n)throw Error('Toiminto ei ole sallittu. Tarkista kohde, työntö, veto ja vuoron lopputilanne.');return finishAction(s,a,n);}
+function finishAction(s,a,n){const start=s.start??signature(s),p=s.pieces.find(p=>p.id===a.id);n.log.push(`${s.player===0?'Baba':'Keke'}: ${a.kind==='place'?'asetti':'liikkui'} ${p.word??p.type}${a.steps>1?' '+a.steps+' askelta':''}${(a.pullSteps??(a.pull?1:0))?' ja veti':''}.`);n.log=n.log.slice(-20);n.left--;
+ if(n.challenge){n.challenge.remaining--;if(n.winner===null&&n.challenge.remaining===0)n.winner=n.challenge.by;}
+ if(n.left===0&&n.winner===null){n.previous=n.challenge?s.previous:start;n.start=signature(n);n.player=n.challenge?s.player:1-s.player;n.left=2;n.turn++;}else n.start=start;return n;}
+function challenge(s){if(s.winner!==null||s.challenge||s.left!==(s.turn===0?1:2))throw Error('Haaste tehdään oman vuoron alussa.');const n=clone(s);n.challenge={by:s.player,remaining:10};n.player=1-s.player;n.left=2;n.start=signature(s);n.previous=s.start??signature(s);n.log.push('Haaste! Vastustajalla on 10 toimintoa voittaa.');return n;}
+function concede(s){if(s.winner!==null||s.challenge||actions(s).length)throw Error('Tappion voi myöntää, kun vaadittuja toimintoja ei voi tehdä.');const n=clone(s);n.winner=1-s.player;return n;}
+
+// Search may explore an unfinished first action, but only complete legal turns
+// are offered to the AI. Human actions retain the existing completion check.
+function* successors(s){
+ for(const a of candidates(s))for(const {action,state}of variants(s,a)){const n=validate(s,state,false);if(n)yield {action,state:finishAction(s,action,n)};}
+}
+
+const AI_MATE=1000000;
+const aiCopy=s=>JSON.parse(JSON.stringify(s));
+const aiDistance=(a,b)=>Math.abs(a.x-b.x)+Math.abs(a.y-b.y);
+const aiKey=s=>[signature(s),s.player,s.left,s.turn===0,s.start,s.previous,s.challenge?.by,s.challenge?.remaining,JSON.stringify(s.effectOrder??[])].join('|');
+
+// All scoring is from one player's perspective, including at opponent nodes.
+function evaluateAI(s,player){
+ if(s.winner!==null)return s.winner===player?AI_MATE:-AI_MATE;
+ const r=rules(s),on=s.pieces.filter(p=>p.x!==null),goals=on.filter(p=>has(s,p,'win',r));
+ const value=side=>{
+  const own=on.filter(p=>has(s,p,'you'+side,r));if(!own.length)return -800;
+  let score=own.length*32;
+  for(const p of own){score+=8-(Math.abs(p.x-2)+Math.abs(p.y-2))*2;if(has(s,p,'fast',r))score+=12;if(has(s,p,'hot',r))score+=5;if(has(s,p,'melt',r))score-=8;}
+  let nearest=20;for(const p of own)for(const goal of goals)if(p.id!==goal.id)nearest=Math.min(nearest,aiDistance(p,goal));
+  if(nearest<20)score+=180/(nearest+.6);
+  // A nearby WIN is much more urgent for the player who moves next. This
+  // keeps defensive rule-breaking inside the beam before deeper minimax.
+  if(s.player===side&&nearest<=2)score+=nearest===1?450:250;
+  // A noun near YOU can set up a property with the second action. Reward useful
+  // rule construction rather than treating every unused text tile as worthless.
+  const winAvailable=s.pieces.some(p=>p.word==='win'&&p.x===null);
+  if(winAvailable)for(const noun of on.filter(p=>p.type==='text'&&['rock','flag','square'].includes(p.word))){
+   const targets=on.filter(p=>p.type===noun.word||(noun.word==='square'&&r.activeSquares.has(p.id)));
+   if(!targets.length)continue;
+   for(const [dx,dy]of [[1,0],[0,1]]){const x=noun.x+dx,y=noun.y+dy;if(x>4||y>4||on.some(p=>p.x===x&&p.y===y)||!own.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1))continue;
+    let distance=20;for(const p of own)for(const goal of targets)if(p.id!==goal.id)distance=Math.min(distance,aiDistance(p,goal));if(distance<20)score+=35/(distance+.8);
+   }
+  }
+  return score;
+ };
+ return value(player)-value(1-player);
+}
+
+function chooseAI(state,{timeMs=2500,maxTurns=3,turnWidth=6,firstWidth=8,variation=4,seed}={}){
+ const searchSeed=(seed??(globalThis.crypto?.getRandomValues?globalThis.crypto.getRandomValues(new Uint32Array(1))[0]:Math.floor(Math.random()*4294967296)))>>>0;
+ let randomState=searchSeed;
+ const random=()=>{randomState=(randomState+0x6D2B79F5)>>>0;let t=randomState;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};
+ const shuffled=entries=>{const result=[...entries];for(let i=result.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;};
+ const pick=entries=>entries[Math.floor(random()*entries.length)];
+ const began=performance.now(),deadline=began+Math.max(20,timeMs),rootPlayer=state.player;
+ const env={nodes:0,turns:0,timedOut:false,pruned:false};
+ const STOP={};
+ const check=()=>{if(performance.now()>=deadline){env.timedOut=true;throw STOP;}};
+ const score=s=>evaluateAI(s,rootPlayer);
+ const afterAction=(before,n)=>n.winner!==null||n.turn!==before.turn;
+ const order=(a,b,side)=>(side===rootPlayer?b.rank-a.rank:a.rank-b.rank)||(a.rank===(side===rootPlayer?AI_MATE:-AI_MATE)?a.plan.length-b.plan.length:0);
+ const turnCache=new Map(),table=new Map();
+ function addUnique(map,entry){const key=aiKey(entry.state),old=map.get(key);if(!old||entry.plan.length<old.plan.length)map.set(key,entry);}
+ function fallback(s){
+  const first=[];for(const edge of successors(s)){env.nodes++;const plan=[edge.action];if(afterAction(s,edge.state))return {state:edge.state,plan,rank:score(edge.state)};first.push(edge);}
+  for(const edge of first)for(const next of successors(edge.state)){env.nodes++;if(afterAction(s,next.state))return {state:next.state,plan:[edge.action,next.action],rank:score(next.state)};}
+  if(s.challenge){const n=aiCopy(s);n.winner=s.challenge.by;return {state:n,plan:[],rank:score(n)};}
+  try{const n=challenge(s);return {state:n,plan:[{kind:'challenge'}],rank:score(n)};}catch{const n=concede(s);return {state:n,plan:[{kind:'concede'}],rank:score(n)};}
+ }
+ function options(s){
+  const key=aiKey(s);if(turnCache.has(key))return turnCache.get(key);
+  check();const seedMap=new Map(),done=new Map();
+  for(const edge of successors(s)){check();env.nodes++;const entry={state:edge.state,plan:[edge.action],rank:score(edge.state)};if(afterAction(s,edge.state))addUnique(done,entry);else addUnique(seedMap,entry);}
+  const seeds=shuffled(seedMap.values()).sort((a,b)=>order(a,b,s.player));
+  if(seeds.length>firstWidth)env.pruned=true;
+  // Winning first actions need no second action and always survive the beam.
+  for(const seed of seeds.slice(0,firstWidth))for(const edge of successors(seed.state)){
+   check();env.nodes++;if(!afterAction(s,edge.state))continue;addUnique(done,{state:edge.state,plan:[...seed.plan,edge.action],rank:score(edge.state)});
+  }
+  let result=shuffled(done.values()).sort((a,b)=>order(a,b,s.player));
+  // If all retained first actions were dead ends, use a legal complete fallback
+  // rather than declaring a loss merely because a beam discarded a continuation.
+  if(!result.length)result=[fallback(s)];
+  if(result.length>turnWidth)env.pruned=true;
+  result=result.slice(0,turnWidth);turnCache.set(key,result);env.turns++;return result;
+ }
+ function search(s,depth,alpha,beta){
+  check();if(s.winner!==null||depth===0)return score(s);
+  const key=aiKey(s)+'#'+depth,cached=table.get(key);if(cached!==undefined)return cached;
+  const alphaBefore=alpha,betaBefore=beta,maximizing=s.player===rootPlayer;let best=maximizing?-Infinity:Infinity,cut=false;
+  for(const entry of options(s)){
+   const v=search(entry.state,depth-1,alpha,beta);best=maximizing?Math.max(best,v):Math.min(best,v);
+   if(maximizing)alpha=Math.max(alpha,best);else beta=Math.min(beta,best);
+   if(beta<=alpha){cut=true;break;}
+  }
+  if(!cut&&best>alphaBefore&&best<betaBefore)table.set(key,best);return best;
+ }
+ const fallbackEntry=fallback(state);let chosen=fallbackEntry,completedDepth=0,rootOptions=null;
+ try{
+  rootOptions=options(state);
+  const immediate=rootOptions.filter(entry=>entry.state.winner===rootPlayer);
+  if(immediate.length){const shortest=Math.min(...immediate.map(entry=>entry.plan.length));chosen=pick(immediate.filter(entry=>entry.plan.length===shortest));completedDepth=1;}
+  else for(let depth=1;depth<=Math.min(3,maxTurns);depth++){
+   let bestValue=-Infinity;const scored=[];
+   // Each root alternative gets a full-window score. An alpha-beta bound from
+   // a rejected alternative must not be mistaken for a near-equal true value.
+   for(const entry of rootOptions){const value=search(entry.state,depth-1,-Infinity,Infinity);scored.push({entry,value});bestValue=Math.max(bestValue,value);}
+   const margin=Math.max(0,Number(variation)||0);
+   const eligible=scored.filter(({value})=>bestValue>=AI_MATE?value>=AI_MATE:bestValue>-AI_MATE?value>-AI_MATE&&value>=bestValue-margin:value===bestValue);
+   if(eligible.length){chosen=pick(eligible).entry;completedDepth=depth;rootOptions=[chosen,...rootOptions.filter(entry=>entry!==chosen)];}
+   if(bestValue>=AI_MATE||bestValue<=-AI_MATE)break;
+  }
+ }catch(error){if(error!==STOP)throw error;}
+ return {plan:chosen.plan,stats:{seed:searchSeed,completedTurns:completedDepth,targetTurns:3,nodes:env.nodes,expandedTurns:env.turns,pruned:env.pruned,timedOut:env.timedOut,elapsedMs:Math.round(performance.now()-began)}};
+}
+
+self.onmessage=event=>{
+ try{const result=chooseAI(event.data.state,event.data.options);self.postMessage({id:event.data.id,result});}
+ catch(error){self.postMessage({id:event.data.id,error:error.message??String(error)});}
+};
+</script><script type="module">const APP_VERSION='1.1.0';
+const RIVER_CELLS=Object.freeze([[0,0],[0,1],[1,1],[2,1],[2,2],[2,3],[3,3],[4,3],[4,4]].map(Object.freeze));
+const isRiver=(x,y)=>RIVER_CELLS.some(([a,b])=>a===x&&b===y);
+const dirs=[[0,-1],[1,0],[0,1],[-1,0]];
+const LEVELS={1:'MORE ROCK, MORE FLAG',2:'FAST',3:'HOT / MELT',4:'CURIOUS',5:'SQUARE',21:'WIN HARDER',22:'THIRSTY',23:'STRONG',24:'SCARED',25:'SHEEP'};
+const MAX_LEVELS=2;
+const levelWorld=id=>id>=21?2:1;
+const levelNumber=id=>id>=21?id-20:id;
+const normalizeLevels=levels=>[...new Set((Array.isArray(levels)?levels:[]).map(Number))].filter(id=>LEVELS[id]).slice(0,MAX_LEVELS).sort((a,b)=>a-b);
+const nouns=new Set(['baba','keke','rock','flag','square','river']);
+const props=new Set(['win','fast','hot','melt','curious','thirsty','strong','scared','sheep']);
+const clone=s=>JSON.parse(JSON.stringify(s));
+const inside=(x,y)=>x>=0&&x<5&&y>=0&&y<5;
+const at=(s,x,y)=>s.pieces.filter(p=>p.x===x&&p.y===y);
+function initial(starter=0,levels=[1]){
+ levels=normalizeLevels(levels);
+ const pieces=[{id:'baba',type:'baba',x:0,y:4},{id:'keke',type:'keke',x:4,y:0},{id:'r1',type:'rock',x:0,y:0},{id:'r2',type:'rock',x:4,y:4},{id:'flag',type:'flag',x:2,y:2}];
+ const add=(id,word)=>pieces.push({id,type:'text',word,x:null,y:null});
+ add('t0','rock');if(levels.includes(1))add('t1','rock');add('t2','flag');if(levels.includes(1))add('t3','flag');add('t4','win');add('t5','win');
+ for(const [level,words]of [[2,['fast']],[3,['hot','melt']],[4,['curious']],[5,['square']],[22,['thirsty']],[23,['strong']],[24,['scared']],[25,['sheep','sheep']]])if(levels.includes(level))for(const w of words)add(pieces.some(p=>p.id===w)?w+'2':w,w);
+ if(levels.includes(21)){add('w2-win0','win');add('w2-win1','win');}
+ return {version:3,levels,pieces,player:starter,left:1,turn:0,start:null,previous:null,winner:null,challenge:null,log:[],effectOrder:[],controllers:['human','human']};
+}
+const signature=s=>JSON.stringify(s.pieces.map(p=>[p.type==='text'?'w:'+p.word:p.type,p.x,p.y]).sort());
+function restore(value){
+ if(!value?.pieces)return initial();const s=clone(value);s.levels??=[1];s.effectOrder??=[];s.controllers=[0,1].map(i=>s.controllers?.[i]==='ai'?'ai':'human');
+ const convert=str=>{if(!str)return str;try{return JSON.stringify(JSON.parse(str).map(([key,x,y])=>{const p=s.pieces.find(p=>p.id===key);return [p?(p.type==='text'?'w:'+p.word:p.type):key,x,y];}).sort());}catch{return null;}};
+ if(!s.version||s.version<2){s.start=convert(s.start);s.previous=convert(s.previous);}
+ const levels=normalizeLevels(s.levels);
+ if(levels.length!==s.levels.length){const fresh=initial(s.player,levels);fresh.controllers=s.controllers;fresh.log=['Vanha tasoyhdistelmä rajattiin kahteen tasoon. Uusi peli aloitettu.'];return fresh;}
+ s.levels=levels;s.version=3;return s;
+}
+function rules(s){
+ const r={baba:new Set(),keke:new Set(),rock:new Set(),flag:new Set(),square:new Set(),river:new Set()};
+ const activeSquares=new Set();Object.defineProperty(r,'activeSquares',{value:activeSquares});
+ const ns=[{word:'baba',x:-1,y:2},{word:'keke',x:2,y:-1},...s.pieces.filter(p=>p.x!==null&&p.type==='text'&&nouns.has(p.word))];
+ const ps=[{word:'you0',x:-1,y:3},{word:'you0',x:2,y:5},{word:'you1',x:3,y:-1},{word:'you1',x:5,y:2},...s.pieces.filter(p=>p.x!==null&&p.type==='text'&&props.has(p.word))];
+ for(const n of ns)for(const p of ps)if((p.x===n.x+1&&p.y===n.y)||(p.x===n.x&&p.y===n.y+1)){r[n.word].add(p.word);if(p.id)activeSquares.add(p.id);}
+ if(s.levels?.includes(3))r.river.add('hot');if(s.levels?.includes(4))r.flag.add('curious');
+ for(const [level,prop]of [[22,'thirsty'],[24,'scared'],[25,'sheep']])if(s.levels?.includes(level))r.rock.add(prop);
+ return r;
+}
+function has(s,p,prop,r=rules(s)){return (p.type==='text'?r.activeSquares.has(p.id)&&r.square.has(prop):r[p.type]?.has(prop))||false;}
+const share=(s,a,b,r)=>(has(s,a,'win',r)&&(has(s,b,'you0',r)||has(s,b,'you1',r)))||(has(s,b,'win',r)&&(has(s,a,'you0',r)||has(s,a,'you1',r)))||(has(s,a,'hot',r)&&has(s,b,'melt',r))||(has(s,b,'hot',r)&&has(s,a,'melt',r));
+function winner(s,actor){const r=rules(s),w=[];for(let pl=0;pl<2;pl++)if(s.pieces.some(p=>p.x!==null&&has(s,p,'you'+pl,r)&&at(s,p.x,p.y).some(q=>q.id!==p.id&&has(s,q,'win',r))))w.push(pl);return w.includes(actor)?actor:w[0]??null;}
+const changes=(before,after)=>after.pieces.flatMap(p=>{const old=before.pieces.find(q=>q.id===p.id);return p.x===old.x&&p.y===old.y?[]:[{id:p.id,from:[old.x,old.y],to:[p.x,p.y]}];});
+const commit=(s,trial)=>{for(const p of trial.pieces)Object.assign(s.pieces.find(q=>q.id===p.id),p);s.log=trial.log;};
+
+// Plan on a private board: a blocked push or pull never leaves a partial move.
+function singleStep(s,id,dir,pull=false,r=rules(s)){
+ const p=s.pieces.find(p=>p.id===id);if(!p||p.x===null)return null;
+ const [dx,dy]=dirs[dir],ox=p.x,oy=p.y,tx=ox+dx,ty=oy+dy,strong=has(s,p,'strong',r);
+ if(!inside(tx,ty))return null;
+ const pushGroup=group=>{
+  const x=group[0].x+dx,y=group[0].y+dy;
+  if(!inside(x,y)){
+   if(!strong)return false;
+   for(const q of group){s.log.push(`${q.word??q.type} ajettiin reunan yli ja palautui varastoon.`);q.x=null;q.y=null;}return true;
+  }
+  const blocked=at(s,x,y).filter(q=>!group.includes(q)&&group.some(v=>!share(s,v,q,r)));
+  if(blocked.length&&(!strong||!pushGroup(blocked)))return false;
+  for(const q of group){q.x=x;q.y=y;}return true;
+ };
+ const pushed=at(s,tx,ty).filter(q=>!share(s,p,q,r));
+ if(pushed.length&&!pushGroup(pushed))return null;
+ p.x=tx;p.y=ty;
+ if(pull){
+  const pulled=at(s,ox-dx,oy-dy);
+  if(!strong&&pulled.some(q=>has(s,q,'scared',r)))return null;
+  const occupants=at(s,ox,oy).filter(q=>pulled.some(v=>!share(s,v,q,r)));
+  if(occupants.length&&!pushGroup(occupants))return null;
+  for(const q of pulled){q.x=ox;q.y=oy;}
+ }
+ return {pushed:pushed.length>0};
+}
+
+function step(s,id,dir,pull=false){
+ const before=clone(s),p=s.pieces.find(p=>p.id===id);if(!p||p.x===null)return null;
+ const r=rules(s),[dx,dy]=dirs[dir];
+ if(pull&&!has(s,p,'strong',r)&&at(s,p.x-dx,p.y-dy).some(q=>has(s,q,'scared',r)))return null;
+ const solo=clone(s),result=singleStep(solo,id,dir,pull,r);
+ const herd=s.pieces.filter(q=>q.x!==null&&has(s,q,'sheep',r));
+ const triggered=herd.some(q=>q.id===id||at(s,p.x+dx,p.y+dy).some(v=>v.id===q.id&&!share(s,p,v,r))||(pull&&q.x===p.x-dx&&q.y===p.y-dy)||(result&&changes(before,solo).some(ev=>ev.id===q.id)));
+ let trial=solo,pushed=result?.pushed??false;
+ if(triggered){
+  trial=clone(s);const moved=new Set();
+  // Front-to-back planning lets adjacent sheep vacate their squares together.
+  // A sheep pushed by another member is counted once, never triggered again.
+  const roots=[...new Set([id,...herd.map(q=>q.id)])].sort((a,b)=>{const pa=s.pieces.find(q=>q.id===a),pb=s.pieces.find(q=>q.id===b);return (pb.x-pa.x)*dx+(pb.y-pa.y)*dy||(a===id?-1:b===id?1:a.localeCompare(b));});
+  for(const root of roots){
+   if(moved.has(root))continue;
+   const next=clone(trial),one=singleStep(next,root,dir,root===id&&pull,r);if(!one)continue;
+   for(const ev of changes(trial,next))moved.add(ev.id);commit(trial,next);pushed||=one.pushed;
+  }
+  const movedPrimary=trial.pieces.find(q=>q.id===id);
+  if(movedPrimary.x!==p.x+dx||movedPrimary.y!==p.y+dy)return null;
+ }else if(!result)return null;
+ const events=changes(before,trial);commit(s,trial);return {events,pushed,before};
+}
+function melt(s){
+ // Removing a rule can remove HOT/MELT, so recompute between simultaneous waves.
+ while(true){const r=rules(s),dead=s.pieces.filter(p=>p.x!==null&&has(s,p,'melt',r)&&((r.river.has('hot')&&isRiver(p.x,p.y))||at(s,p.x,p.y).some(q=>q.id!==p.id&&has(s,q,'hot',r))));if(!dead.length)break;for(const p of dead){s.log.push(`${p.word??p.type} suli ja palautui varastoon.`);p.x=null;p.y=null;}}
+}
+function reactions(s,batch){
+ const queue=[batch],seen=new Set();let rounds=0;
+ while(queue.length){
+  const task=queue.shift();melt(s);const r=rules(s);let intents=[];
+  if(task.intents){
+   intents=task.intents.filter(i=>{const p=s.pieces.find(p=>p.id===i.id);return p?.x!==null&&p&&has(s,p,i.effect,r)&&(!task.continuing||i.effect==='scared'||has(s,p,'fast',r));});
+  }else{
+   const {events,before}=task;
+   for(const q of s.pieces.filter(p=>p.x!==null&&(has(s,p,'curious',r)||has(s,p,'scared',r)))){
+    const old=before.pieces.find(p=>p.id===q.id);if(!old||old.x===null)continue;
+    const wants=[];
+    if(has(s,q,'curious',r)){
+     const ds=new Set();for(const ev of events){if(ev.id===q.id||ev.to[0]===null)continue;const [fx,fy]=ev.from,[x,y]=ev.to;
+      if(y===old.y&&(fy!==old.y||fx===null)&&x!==old.x)ds.add(x>old.x?1:3);
+      if(x===old.x&&(fx!==old.x||fy===null)&&y!==old.y)ds.add(y>old.y?2:0);
+     }
+     if(ds.size===1)wants.push({id:q.id,dir:[...ds][0],effect:'curious',fast:has(s,q,'fast',r)});
+    }
+    if(has(s,q,'scared',r)){
+     const triggered=events.some(ev=>ev.id!==q.id&&ev.to[0]!==null&&Math.abs(ev.to[0]-q.x)+Math.abs(ev.to[1]-q.y)===1&&(ev.from[0]===null||Math.abs(ev.from[0]-old.x)+Math.abs(ev.from[1]-old.y)!==1));
+     if(triggered){
+      const ds=new Set(s.pieces.filter(p=>p.id!==q.id&&p.x!==null&&Math.abs(p.x-q.x)+Math.abs(p.y-q.y)===1).map(p=>p.x>q.x?3:p.x<q.x?1:p.y>q.y?0:2));
+      if(ds.size===1)wants.push({id:q.id,dir:[...ds][0],effect:'scared'});
+     }
+    }
+    if(new Set(wants.map(i=>i.dir)).size===1)intents.push(wants.find(i=>i.effect==='scared')??wants[0]);
+   }
+  }
+  if(!intents.length)continue;
+  const order=s.effectOrder??[];intents.sort((a,b)=>{const ai=order.indexOf(a.id),bi=order.indexOf(b.id);return (ai<0?999:ai)-(bi<0?999:bi)||a.id.localeCompare(b.id);});
+  const key=signature(s)+JSON.stringify(intents);if(seen.has(key))throw Object.assign(Error('Reaktiot muodostavat kehän. Valitse toinen ratkaisujärjestys.'),{loop:{ids:intents.map(i=>i.id)}});seen.add(key);if(++rounds>200)throw Object.assign(Error('Liian pitkä reaktioketju. Vaihda ratkaisujärjestystä.'),{loop:{ids:intents.map(i=>i.id)}});
+  // Compatible plans share the same starting board. Identical herd displacements
+  // from several leaders are merged, so each sheep moves once in this wave.
+  const plans=intents.map(i=>{const trial=clone(s),result=step(trial,i.id,i.dir);return {intent:i,trial,result};}).filter(p=>p.result);
+  let independent=true;const changed=new Map();
+  for(const plan of plans)for(const ev of plan.result.events){const other=changed.get(ev.id);if(other&&other.to.join(',')!==ev.to.join(','))independent=false;changed.set(ev.id,ev);}
+  // Also account for a stationary piece in a conflicting plan's destination.
+  for(const ev of changed.values())if(ev.to[0]!==null)for(const q of s.pieces){if(q.id===ev.id)continue;const pos=changed.get(q.id)?.to??[q.x,q.y];if(pos[0]===ev.to[0]&&pos[1]===ev.to[1]&&!share(s,s.pieces.find(p=>p.id===ev.id),q,r))independent=false;}
+  if(independent&&plans.length){
+   const prev=clone(s),all=[...changed.values()];for(const ev of all)Object.assign(s.pieces.find(q=>q.id===ev.id),{x:ev.to[0],y:ev.to[1]});
+   for(const plan of plans)for(const line of plan.trial.log.slice(prev.log.length))if(!s.log.slice(prev.log.length).includes(line))s.log.push(line);
+   melt(s);const continuing=plans.filter(p=>p.intent.effect==='scared'||p.intent.fast&&!p.result.pushed).map(p=>p.intent);
+   queue.unshift({events:all,before:prev},...(continuing.length?[{intents:continuing,continuing:true}]:[]));
+  }else if(plans.length)queue.unshift(...intents.map(intent=>({intents:[intent]})));
+ }
+}
+
+// Each thirsty object chooses a straight route to the first river square in
+// that direction. The actor may set effectOrder when movements interfere.
+function thirst(s,a,requireChoices){
+ const order=s.effectOrder??[],ids=s.pieces.filter(p=>p.x!==null&&has(s,p,'thirsty')).map(p=>p.id).sort((a,b)=>(order.indexOf(a)<0?999:order.indexOf(a))-(order.indexOf(b)<0?999:order.indexOf(b))||a.localeCompare(b));
+ for(const id of ids){
+  const p=s.pieces.find(p=>p.id===id);if(p.x===null||isRiver(p.x,p.y)||!has(s,p,'thirsty'))continue;
+  const options=[];
+  for(let dir=0;dir<4;dir++){
+   const [dx,dy]=dirs[dir];for(let distance=1;distance<5;distance++){const x=p.x+dx*distance,y=p.y+dy*distance;if(!inside(x,y))break;if(!isRiver(x,y))continue;
+    const trial=clone(s);if(step(trial,id,dir))options.push({dir,from:[p.x,p.y],to:[x,y]});break;
+   }
+  }
+  if(!options.length)continue;
+  const chosen=a.thirstyChoices?.find(choice=>choice.id===id);
+  if(requireChoices&&options.length>1&&!chosen){const error=new Error('Valitse janoisen reitti joelle.');error.routeChoice={id,options};throw error;}
+  const route=chosen?options.find(option=>option.dir===chosen.dir):options[0];if(!route)throw Error('Janoisen valittu reitti ei ole sallittu.');
+  for(let distance=0;distance<4&&p.x!==null&&!isRiver(p.x,p.y)&&has(s,p,'thirsty');distance++){
+   const result=step(s,id,route.dir);if(!result)break;reactions(s,result);
+  }
+ }
+}
+
+const permutations=a=>a.length<2?[a]:a.flatMap((x,i)=>permutations([...a.slice(0,i),...a.slice(i+1)]).map(p=>[x,...p]));
+// Official FAQ: an infinite loop makes the player who last acted lose. The actor may still choose another
+// resolution order, so the loss only applies when every order loops; otherwise the action is rejected as before.
+function raw(s,a,options={}){
+ const box={};
+ try{return rawCore(s,a,options,box);}
+ catch(error){
+  if(!error.loop||options.noLoopCheck||!box.n)throw error;
+  const ids=[...new Set([...s.pieces.filter(p=>p.type!=='text'&&p.x!==null).map(p=>p.id),...error.loop.ids])];
+  if(ids.length>6)throw error;
+  let avoidable=false;
+  for(const order of permutations(ids)){
+   try{rawCore({...s,effectOrder:order},a,{...options,noLoopCheck:true},{});avoidable=true;}catch(inner){if(!inner.loop)avoidable=true;}
+   if(avoidable)break;
+  }
+  if(avoidable)throw error;
+  const lost=box.n;lost.winner=1-s.player;lost.log.push('Ääretön silmukka: '+(s.player===0?'Baba':'Keke')+' menettää pelin, koska toimi viimeksi.');lost.log=lost.log.slice(-20);return lost;
+ }
+}
+function rawCore(s,a,{requireChoices=false}={},box={}){
+ if(s.winner!==null)return null;const n=clone(s),r=rules(s);box.n=n;
+ if(a.kind==='place'){
+  const p=n.pieces.find(p=>p.id===a.id);if(!p||p.x!==null||!inside(a.x,a.y)||at(s,a.x,a.y).length||!s.pieces.some(q=>q.x!==null&&has(s,q,'you'+s.player,r)&&Math.abs(q.x-a.x)+Math.abs(q.y-a.y)===1))return null;
+  p.x=a.x;p.y=a.y;reactions(n,{before:clone(s),events:[{id:p.id,from:[null,null],to:[a.x,a.y]}]});
+ }else if(a.kind==='move'){
+  const p=n.pieces.find(p=>p.id===a.id),steps=a.steps??1,pullSteps=a.pullSteps??(a.pull?steps:0);
+  if(!p||p.x===null||!has(s,p,'you'+s.player,r)||!dirs[a.dir]||!Number.isSafeInteger(steps)||steps<1||!Number.isInteger(pullSteps)||pullSteps<0||pullSteps>steps)return null;
+  if(steps>1&&!has(s,p,'fast',r))return null;
+  for(let i=0;i<steps;i++){
+   if(p.x===null)break;if(i>0&&(!has(n,p,'fast')||!has(n,p,'you'+s.player)))return null;
+   const result=step(n,p.id,a.dir,i<pullSteps);if(!result)return null;reactions(n,result);
+  }
+ }else return null;
+ n.winner=winner(n,s.player);
+ if(n.winner===null&&s.left===1){thirst(n,a,requireChoices);n.winner=winner(n,s.player);}
+ n.log=n.log.slice(-20);return n;
+}
+function* candidates(s){
+ const r=rules(s);for(const p of s.pieces){if(p.x===null){const targets=new Set();for(const q of s.pieces.filter(q=>q.x!==null&&has(s,q,'you'+s.player,r)))for(const [dx,dy]of dirs){const x=q.x+dx,y=q.y+dy;if(inside(x,y)&&!at(s,x,y).length&&!targets.has(x+','+y)){targets.add(x+','+y);yield {kind:'place',id:p.id,x,y};}}}
+ else if(has(s,p,'you'+s.player,r))for(let dir=0;dir<4;dir++){const [dx,dy]=dirs[dir],behind=at(s,p.x-dx,p.y-dy).length>0;for(const steps of (has(s,p,'fast',r)?[...new Set([1,2,3,4,s.fastLimit??4])]:[1]))for(const pullSteps of (behind?[...new Set([0,1,2,3,4,steps,s.fastPull??1])].filter(n=>n<=steps):[0]))yield {kind:'move',id:p.id,dir,steps,pullSteps,pull:pullSteps>0};}}
+}
+const validEnd=(s,n)=>signature(n)!==(s.start??signature(s))&&signature(n)!==s.previous;
+function* variants(s,a){
+ const pending=[a],seen=new Set();while(pending.length){const action=pending.pop();let state;
+  try{state=raw(s,action,{requireChoices:true});}catch(error){if(error.routeChoice){const {id,options}=error.routeChoice;for(const route of [...options].reverse())pending.push({...action,thirstyChoices:[...(action.thirstyChoices??[]),{id,...route}]});}continue;}
+  if(state){const key=signature(state)+'|'+state.winner;if(!seen.has(key)){seen.add(key);yield {action,state};}}
+ }
+}
+function validate(s,n,lookAhead){if(!n)return null;if(n.winner!==null)return n;if(s.left===1&&!validEnd(s,n))return null;if(s.left===2&&lookAhead){const second={...n,left:1,start:s.start??signature(s)};let found=false;for(const b of candidates(second)){for(const {state:end}of variants(second,b))if(end.winner!==null||validEnd(second,end)){found=true;break;}if(found)break;}if(!found)return null;}return n;}
+function legal(s,a,lookAhead=true){let n;try{n=raw(s,a);}catch{return null;}return validate(s,n,lookAhead);}
+function actions(s){const result=[];for(const a of candidates(s))for(const {action,state}of variants(s,a))if(validate(s,state,true))result.push(action);return result;}
+function act(s,a){const n=legal(s,a);if(!n)throw Error('Toiminto ei ole sallittu. Tarkista kohde, työntö, veto ja vuoron lopputilanne.');return finishAction(s,a,n);}
+function finishAction(s,a,n){const start=s.start??signature(s),p=s.pieces.find(p=>p.id===a.id);n.log.push(`${s.player===0?'Baba':'Keke'}: ${a.kind==='place'?'asetti':'liikkui'} ${p.word??p.type}${a.steps>1?' '+a.steps+' askelta':''}${(a.pullSteps??(a.pull?1:0))?' ja veti':''}.`);n.log=n.log.slice(-20);n.left--;
+ if(n.challenge){n.challenge.remaining--;if(n.winner===null&&n.challenge.remaining===0)n.winner=n.challenge.by;}
+ if(n.left===0&&n.winner===null){n.previous=n.challenge?s.previous:start;n.start=signature(n);n.player=n.challenge?s.player:1-s.player;n.left=2;n.turn++;}else n.start=start;return n;}
+function challenge(s){if(s.winner!==null||s.challenge||s.left!==(s.turn===0?1:2))throw Error('Haaste tehdään oman vuoron alussa.');const n=clone(s);n.challenge={by:s.player,remaining:10};n.player=1-s.player;n.left=2;n.start=signature(s);n.previous=s.start??signature(s);n.log.push('Haaste! Vastustajalla on 10 toimintoa voittaa.');return n;}
+function concede(s){if(s.winner!==null||s.challenge||actions(s).length)throw Error('Tappion voi myöntää, kun vaadittuja toimintoja ei voi tehdä.');const n=clone(s);n.winner=1-s.player;return n;}
+
+// Search may explore an unfinished first action, but only complete legal turns
+// are offered to the AI. Human actions retain the existing completion check.
+function* successors(s){
+ for(const a of candidates(s))for(const {action,state}of variants(s,a)){const n=validate(s,state,false);if(n)yield {action,state:finishAction(s,action,n)};}
+}
+
+const $=id=>document.getElementById(id),names={baba:'BABA',keke:'KEKE',rock:'ROCK',flag:'FLAG',win:'IS WIN',fast:'IS FAST',hot:'IS HOT',melt:'IS MELT',curious:'IS CURIOUS',square:'SQUARE',river:'RIVER',thirsty:'IS THIRSTY',strong:'IS STRONG',scared:'IS SCARED',sheep:'IS SHEEP'};
+$('app-version').textContent='v'+APP_VERSION;
+const FINNISH_WORDS={baba:'BABA',keke:'KEKE',rock:'KIVI',flag:'LIPPU',river:'JOKI',square:'NELIÖ',win:'VOITTO',fast:'NOPEA',hot:'KUUMA',melt:'SULAVA',curious:'UTELIAS',thirsty:'JANOINEN',strong:'VAHVA',scared:'PELOKAS',sheep:'LAMMAS',you:'SINÄ',is:'ON',default:'PERUS',world:'MAAILMA',level:'TASO',levels:'TASOT'};
+const FINNISH_LEVELS={1:'LISÄÄ KIVIÄ JA LIPPUJA',2:'NOPEA',3:'KUUMA / SULAVA',4:'UTELIAS',5:'NELIÖ',21:'ENEMMÄN VOITTOJA',22:'JANOINEN',23:'VAHVA',24:'PELOKAS',25:'LAMMAS'};
+let finnish=false;try{finnish=localStorage.getItem('baba-language')==='fi';}catch{}
+const term=key=>finnish?(FINNISH_WORDS[key]??key.toUpperCase()):key.toUpperCase();
+const ruleText=(noun,prop,owner=true)=>`${term(noun)} ${term('is')} ${term(prop.startsWith('you')?'you':prop)}${owner&&prop.startsWith('you')?` (${prop==='you0'?'Baba':'Keke'})`:''}`;
+const translateInline=value=>finnish?value.replace(/\b(baba|keke|rock|flag|river|square|win|fast|hot|melt|curious|thirsty|strong|scared|sheep|you|is|default|world|levels?)\b/gi,key=>term(key.toLowerCase())):value;
+const levelTitle=id=>`${term('world')} ${levelWorld(id)} · ${levelNumber(id)} · ${finnish?FINNISH_LEVELS[id]:LEVELS[id]}`;
+let languageHelpOriginals=null;
+let s;try{
+ const saved=localStorage.getItem('baba-world1-v2')??localStorage.getItem('baba-level1-v1'),previous=JSON.parse(saved);
+ s=restore(previous);
+ if(previous?.levels?.length>MAX_LEVELS)localStorage.setItem('baba-before-two-level-limit',saved);
+}catch{s=initial();}
+let selected=null,available=[],gesture=null,suppressBoardClickUntil=0,routeAlternatives=[];
+let aiWorker=null,aiWorkerURL=null,aiTimer=null,aiDeadlineTimer=null,aiBusy=false,aiPaused=false,aiFault=null,aiJob=0;
+const isAITurn=()=>s.winner===null&&s.controllers?.[s.player]==='ai';
+function wantedPullSteps(a,pulling){
+ if(!pulling)return 0;
+ const p=s.pieces.find(p=>p.id===a.id),[dx,dy]=dirs[a.dir];
+ if(!p||!s.pieces.some(q=>q.x===p.x-dx&&q.y===p.y-dy))return 0;
+ return Math.min(gesture?.pullUntil??a.steps,a.steps);
+}
+const pullMatches=(a,pulling=false)=>a.kind==='move'&&a.id===selected&&a.pullSteps===wantedPullSteps(a,pulling);
+const label=p=>p.type==='text'?(names[p.word]??p.word):names[p.type];
+const text=t=>{const p=document.createElement('span');p.textContent=t;return p;};
+function piece(p){const el=document.createElement('span');el.className='piece '+(p.type==='text'?'text '+p.word:'object '+p.type);el.setAttribute('aria-label',names[p.word??p.type]);if(p.type==='text'){if(p.word==='rock'||p.word==='flag'){el.append(nounArt(p.word));}else if(p.word==='square'){el.append(nounArt(p.word));}else {el.append(winArt(p.word));}}else if(p.type==='baba'||p.type==='keke'){const i=document.createElement('i');i.className='avatar '+p.type;const extra=document.createElement('span');extra.className='extra-part';i.append(extra);if(p.type==='baba'){for(let leg=0;leg<4;leg++){const foot=document.createElement('span');foot.className='baba-foot foot-'+leg;i.append(foot);}}el.append(i);}else el.textContent=p.type==='rock'?'🪨':'⚑';return el;}
+function message(t){$('message').textContent=t;}
+const sameMove=(a,b)=>['kind','id','x','y','dir','steps','pullSteps','pull'].every(key=>a[key]===b[key]);
+function perform(a){
+ routeAlternatives=available.filter(b=>sameMove(a,b));
+ if(routeAlternatives.length>1&&routeAlternatives.some(b=>b.thirstyChoices?.length)){chooseThirstyRoute();return;}
+ finishMove(a);
+}
+function finishMove(a){try{const preview=legal(s,a);if(preview&&preview.winner===1-s.player&&String(preview.log[preview.log.length-1]).includes('silmukka')&&!confirm('Tämä siirto aiheuttaa äärettömän reaktiosilmukan, ja viimeksi toiminut häviää pelin. Jatketaanko?'))return;s=act(s,a);selected=null;save();render();}catch(e){message(e.message);}}
+function chooseThirstyRoute(){
+ const ids=[...new Set(routeAlternatives.flatMap(a=>(a.thirstyChoices??[]).map(c=>c.id)))];
+ const id=ids.find(id=>new Set(routeAlternatives.map(a=>a.thirstyChoices?.find(c=>c.id===id)?.dir)).size>1);
+ if(!id){const a=routeAlternatives[0];routeAlternatives=[];$('thirstyDialog').close();finishMove(a);return;}
+ const routes=[...new Map(routeAlternatives.flatMap(a=>(a.thirstyChoices??[]).filter(c=>c.id===id).map(c=>[c.dir,c]))).values()],p=s.pieces.find(p=>p.id===id);
+ const from=routes[0].from;
+ $('thirsty-description').textContent=`${s.player===0?'Baba':'Keke'} valitsee: ${label(p)} ruudussa (rivi ${from[1]+1}, sarake ${from[0]+1}) liikkuu vuoron lopussa joelle. Valitse reitti.`;
+ $('thirsty-options').replaceChildren();
+ for(const route of routes){const b=document.createElement('button');b.dataset.dir=route.dir;b.textContent=['↑ Ylös','→ Oikealle','↓ Alas','← Vasemmalle'][route.dir]+` · rivi ${route.to[1]+1}, sarake ${route.to[0]+1}`;b.onclick=()=>{routeAlternatives=routeAlternatives.filter(a=>a.thirstyChoices?.some(c=>c.id===id&&c.dir===route.dir));chooseThirstyRoute();};$('thirsty-options').append(b);}
+ if(!$('thirstyDialog').open)$('thirstyDialog').showModal();
+}
+function save(){try{localStorage.setItem('baba-world1-v2',JSON.stringify(s));}catch{}}
+function render(){
+ available=s.winner===null?actions(s):[];const r=rules(s),sel=s.pieces.find(p=>p.id===selected);
+ $('scenario-name').textContent=term('default')+(s.levels.length?' + '+s.levels.map(levelTitle).join(' + '):'');
+ $('river-note').textContent=r.river.has('hot')?'Pysyvä '+ruleText('river','hot',false):'Joki · ei ominaisuutta';
+ $('river-path').classList.toggle('hot-river',r.river.has('hot'));
+ $('permanent').textContent=[...(s.levels.includes(3)?[ruleText('river','hot',false)]:[]),...(s.levels.includes(4)?[ruleText('flag','curious',false)]:[]),...[[22,'thirsty'],[24,'scared'],[25,'sheep']].filter(([id])=>s.levels.includes(id)).map(([,prop])=>ruleText('rock',prop,false))].map(x=>'▣ '+x).join(' · ');
+ $('reaction-settings').hidden=!s.levels.some(id=>[4,22,24].includes(id));
+ renderOrder();
+ $('turnLabel').textContent=s.challenge?`HAASTE · ${s.challenge.remaining} TOIMINTOA JÄLJELLÄ`:`VUORO ${s.turn+1} · ${s.player===0?'BABA':'KEKE'}`;
+ $('status').textContent=s.winner!==null?`${s.winner===0?'Baba':'Keke'} voittaa!`:s.left===1?'Yksi toiminto jäljellä':'Kaksi toimintoa jäljellä';
+ $('dots').replaceChildren();for(let i=0;i<(s.turn===0&&!s.challenge?1:2);i++){let el=document.createElement('i');el.className=i<s.left?'':'used';$('dots').append(el);}
+ for(let pl=0;pl<2;pl++){$('p'+pl).className=s.player===pl?'active':'';$('p'+pl).querySelector('small').textContent=s.controllers?.[pl]==='ai'?'AI':'Pelaaja '+(pl+1);$('b'+pl).textContent=s.winner===pl?'VOITTO':s.winner===null&&s.player===pl?'VUORO':'';}
+ $('rules').replaceChildren();for(const [noun,props]of Object.entries(r))for(const prop of props){const card=text(ruleText(noun,prop));const players=prop.startsWith('you')?[Number(prop.slice(3))]:[0,1].filter(player=>r[noun].has('you'+player));const owner=players.length===2?'both':players[0]===0?'baba':players[0]===1?'keke':'none';card.className='rule owner-'+owner+(prop==='win'?' rule-win':'');card.dataset.noun=noun;card.dataset.property=prop;card.dataset.owner=owner;card.title=({baba:'Baban hallitsemiin esineisiin liittyvä sääntö',keke:'Keken hallitsemiin esineisiin liittyvä sääntö',both:'Molempien pelaajien hallitsemiin esineisiin liittyvä sääntö',none:'Yleinen sääntö: esine ei ole kummankaan pelaajan hallinnassa'})[owner];$('rules').append(card);}
+ $('board').replaceChildren();
+ for(let y=0;y<5;y++)for(let x=0;x<5;x++){
+  const ps=s.pieces.filter(p=>p.x===x&&p.y===y),btn=document.createElement('button');btn.className='cell'+(ps.length>1?' stack':'');btn.dataset.x=x;btn.dataset.y=y;if(!isAITurn()&&ps.some(p=>has(s,p,'you'+s.player,r)))btn.classList.add('can-move');btn.disabled=isAITurn();btn.setAttribute('role','gridcell');btn.setAttribute('aria-label',`Rivi ${y+1}, sarake ${x+1}: ${ps.map(p=>names[p.word??p.type]).join(', ')||'tyhjä'}${isRiver(x,y)?', joki':''}`);
+  let possible=available.find(a=>a.id===selected&&(a.kind==='place'?a.x===x&&a.y===y:sel&&pullMatches(a,!!gesture?.active)&&sel.x+dirs[a.dir][0]*a.steps===x&&sel.y+dirs[a.dir][1]*a.steps===y));
+  if(possible){btn.classList.add('target');if(possible.kind==='move'&&possible.steps>1){const distance=text(String(possible.steps));distance.className='move-distance';btn.append(distance);btn.setAttribute('aria-label',btn.getAttribute('aria-label')+', '+possible.steps+' askeleen liike');}}if(ps.some(p=>p.id===selected))btn.classList.add('selected');for(const p of ps)btn.append(piece(p));
+  if(ps.some(p=>has(s,p,'win',r))){let b=text(term('win'));b.className='badge';btn.append(b);}
+  btn.onclick=()=>{if(s.winner!==null||gesture?.active||isAITurn())return;if(possible){perform(possible);return;}const own=ps.filter(p=>has(s,p,'you'+s.player,r));if(own.length){const idx=own.findIndex(p=>p.id===selected);selected=own[(idx+1)%own.length].id;render();message(has(s,own[(idx+1)%own.length],'fast',r)?`${label(own[(idx+1)%own.length])} ${term('is')} ${term('fast')}: valitse mikä tahansa korostettu kohderuutu. Kauemmas liikkuminen kuluttaa yhden toiminnon.`:`${label(own[(idx+1)%own.length])} valittu. Napsauta kohdetta ilman vetoa tai raahaa hahmoa vetääksesi mukana.`);}else message('Valitse oma hahmo tai laatta varastosta. Korostetut ruudut ovat sallittuja kohteita.');};$('board').append(btn);
+ }
+ $('supply').replaceChildren();for(const p of s.pieces.filter(p=>p.x===null)){const b=document.createElement('button');b.append(piece(p));b.setAttribute('aria-label','Aseta '+names[p.word??p.type]);b.className=selected===p.id?'selected':'';b.disabled=s.winner!==null||isAITurn();b.onclick=()=>{selected=p.id;render();message('Valitse korostettu tyhjä ruutu oman hahmon vierestä.');};$('supply').append(b);}
+ $('log').replaceChildren();for(const item of [...s.log].reverse()){const li=document.createElement('li');li.textContent=translateInline(item.replace(/t[01]/g,'ROCK').replace(/t[23]/g,'FLAG').replace(/t[45]/g,'IS WIN').replace(/r[12]/g,'ROCK'));$('log').append(li);}
+ $('challenge').disabled=isAITurn()||s.winner!==null||!!s.challenge||s.left!==(s.turn===0?1:2);$('concede').hidden=!(s.winner===null&&!isAITurn()&&!s.challenge&&!available.length);
+ if(s.winner!==null)message('Peli päättyi. Voitte aloittaa uuden pelin; edellisen pelin häviäjä valitsee aloittajan.');else if(!available.length){if(s.challenge){s.winner=s.challenge.by;save();render();}else message('Et voi tehdä vaadittuja toimintoja, joten häviät, ellet haasta vastustajaa. Haasta tai myönnä tappio.');}else if(!selected)message('Napsauta hahmoa ja kohderuutua siirtyäksesi. Raahaaminen vetää mukana. Laatat asetetaan varastosta.');
+ renderAIStatus();queueAI();
+}
+$('help').onclick=()=>{cancelAI();$('helpDialog').showModal();render();};$('reset').onclick=()=>{cancelAI();for(let pl=0;pl<2;pl++)$('controller-'+pl).value=s.controllers?.[pl]??'human';for(const box of document.querySelectorAll('[name=level]'))box.checked=s.levels.includes(Number(box.value));updateLevelLimit();$('resetDialog').showModal();render();};for(let pl=0;pl<2;pl++)$('start'+pl).onclick=()=>{cancelAI();aiPaused=false;aiFault=null;const controllers=[0,1].map(i=>$('controller-'+i).value);s=initial(pl,[...document.querySelectorAll('[name=level]:checked')].map(x=>Number(x.value)));s.controllers=controllers;selected=null;save();$('resetDialog').close();render();};
+$('choose-levels').onclick=()=>$('reset').click();
+$('cancel-thirsty').onclick=()=>{$('thirstyDialog').close();routeAlternatives=[];message('Toiminto peruttu.');};
+$('thirstyDialog').addEventListener('cancel',()=>{routeAlternatives=[];message('Toiminto peruttu.');});
+$('challenge').onclick=()=>{try{s=challenge(s);selected=null;save();render();}catch(e){message(e.message);}};
+$('concede').onclick=()=>{try{s=concede(s);selected=null;save();render();}catch(e){message(e.message);}};
+setupLevels();setupLanguage();setupPlayers();setupDrag();render();setupOffline();
+
+
+function alignRiver(){
+ const board=$('board'),cells=[...board.children],b=board.getBoundingClientRect();if(cells.length!==25||!b.width)return;
+ const point=(col,row)=>{const q=cells[row*5+col].getBoundingClientRect();return [(q.left+q.width/2-b.left)*500/b.width,(q.top+q.height/2-b.top)*500/b.height];};
+ const [x0,y0]=point(0,0),[x1,y1]=point(1,1),[x2,y2]=point(2,2),[x3,y3]=point(3,3),[x4,y4]=point(4,4);
+ $('river-path').setAttribute('d',`M ${x0} -45 C ${x0+30} -10 ${x0-25} ${y0+15} ${x0} ${y1-28} Q ${x0-12} ${y1} ${x1-22} ${y1} C ${x1+12} ${y1+14} ${x2+28} ${y1-24} ${x2} ${y1+35} C ${x2-16} ${y2-5} ${x2+12} ${y2+24} ${x2} ${y3-30} Q ${x2-10} ${y3+5} ${x3-28} ${y3} C ${x3+5} ${y3+18} ${x4-10} ${y3-26} ${x4} ${y3+12} C ${x4+32} ${y4-15} ${x4-26} ${y4+12} ${x4} 545`);
+}
+new ResizeObserver(alignRiver).observe($('board'));alignRiver();
+
+// Circle noun tiles: split lettering and two solid direction triangles.
+function nounArt(word){
+ const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
+ svg.setAttribute('viewBox','0 0 100 100');svg.setAttribute('class','noun-art');svg.setAttribute('aria-hidden','true');
+ const circle=document.createElementNS(ns,'circle');circle.setAttribute('cx','50');circle.setAttribute('cy','50');circle.setAttribute('r','49');circle.setAttribute('fill',word==='rock'?'#a47a4c':word==='square'?'#e95d68':'#d6d979');svg.append(circle);
+ const lines=finnish?({rock:['KI','VI'],flag:['LIP','PU'],square:['NE','LIÖ']})[word]:(word==='rock'?['RO','CK']:word==='square'?['SQU','ARE']:['FL','AG']);
+ for(let i=0;i<2;i++){const label=document.createElementNS(ns,'text');label.setAttribute('x','47');label.setAttribute('y',String(43+i*27));label.setAttribute('text-anchor','middle');label.setAttribute('class','noun-lettering'+(lines.some(line=>line.length>2)?' square-lettering':''));label.textContent=lines[i];svg.append(label);}
+ for(const [direction,points]of [['right','80,43 88,49 80,55'],['down','44,81 56,81 50,89']]){const triangle=document.createElementNS(ns,'polygon');triangle.setAttribute('points',points);triangle.setAttribute('class','noun-triangle '+direction);triangle.setAttribute('fill','#18252a');svg.append(triangle);}
+ return svg;
+}
+
+function winArt(word='win'){
+ const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 100 100');svg.setAttribute('class','property-art');svg.setAttribute('aria-hidden','true');
+ const rect=document.createElementNS(ns,'rect');for(const [key,value]of Object.entries({x:1,y:1,width:98,height:98,rx:5,fill:({win:'#c82c8b',fast:'#e7bd3e',hot:'#ed492e',melt:'#80c4d2',curious:'#f1cf45',thirsty:'#80c4d2',strong:'#b9bd74',scared:'#d4a5c6',sheep:'#e4ddc4'})[word]}))rect.setAttribute(key,value);svg.append(rect);
+ for(const [caption,y,cls]of [[term('is'),35,'property-is'],[term(word),73,'property-win '+(term(word).length>4?'long-property':'')]]){const label=document.createElementNS(ns,'text');label.setAttribute('x','50');label.setAttribute('y',String(y));label.setAttribute('text-anchor','middle');label.setAttribute('class',cls);label.textContent=caption;svg.append(label);}return svg;
+}
+
+function setupLevels(){
+ $('level-options').replaceChildren();
+ for(const world of [1,2]){const group=document.createElement('fieldset'),legend=document.createElement('legend');group.dataset.world=world;legend.textContent=term('world')+' '+world;group.append(legend);
+  for(const [value,name]of Object.entries(LEVELS).filter(([id])=>levelWorld(Number(id))===world)){const label=document.createElement('label'),box=document.createElement('input');box.type='checkbox';box.name='level';box.value=value;box.checked=s.levels.includes(Number(value));box.onchange=updateLevelLimit;const caption=document.createElement('span');caption.className='level-name';caption.textContent=levelNumber(Number(value))+' · '+name;label.append(box,caption);group.append(label);}
+  $('level-options').append(group);
+ }
+ updateLevelLimit();
+ const info={2:'FAST: napsauta mitä tahansa korostettua kohderuutua samalla rivillä tai sarakkeella. Raahaus vetää mukana; napsautus ei. Rajaa FAST-veto pysähtymällä hetkeksi väliruutuun ennen jatkamista. Jokainen väliruutu käsitellään.',3:'HOT/MELT: HOT tuhoaa samassa ruudussa olevan MELT-esineen. Tuhoutunut esine palautuu varastoon. Joki on aina HOT tällä tasolla.',4:'CURIOUS: uudelle riville tai sarakkeeseen tuleva esine vetää uteliasta yhden ruudun puoleensa. Ristiriitaiset suunnat kumoavat liikkeen. Lippu on aina CURIOUS.',5:'SQUARE: vain juuri nyt säännössä olevat ominaisuuslaatat lasketaan SQUARE-esineiksi. SQUARE IS YOU antaa niiden hallinnan.'};
+ Object.assign(info,{21:'WORLD 2 · WIN HARDER: lisää kaksi IS WIN -laattaa. DEFAULTin kanssa niitä on neljä.',22:'WORLD 2 · THIRSTY: ROCK IS THIRSTY on pysyvä sääntö. Vuoron päättyessä kaikki joen ulkopuoliset THIRSTY-esineet liikkuvat suoraan kohti jokea ja työntävät sääntöjen mukaan. Vuoron tehnyt pelaaja valitsee vaihtoehtoisista reiteistä. Joessa olevat eivät liiku janon vuoksi.',23:'WORLD 2 · STRONG: vahva työntää myös ketjuja ja voi työntää paloja reunan yli. Ne palautuvat varastoon. STRONG-vetäjä voi vetää myös SCARED-paloja.',24:'WORLD 2 · SCARED: ROCK IS SCARED on pysyvä sääntö. Viereen tuleva pala saa pelokkaan pakenemaan poispäin niin pitkälle kuin mahdollista, työntäen jos sallittua. Useat pakosuunnat jähmettävät sen. SCARED-palaa voi vetää vain STRONG-vetäjä.',25:'WORLD 2 · SHEEP: lisää kaksi IS SHEEP -laattaa ja pysyvän ROCK IS SHEEP -säännön. Lampaan liike mistä tahansa syystä saa muut lampaat pyrkimään samanaikaisesti samaan suuntaan yhtä monta ruutua. Lampaat työntävät, jos mahdollista. Yksi yhteisliike ei laukaise itseään uudelleen.'});
+ const list=$('level-help');for(const [id,description]of Object.entries(info)){const p=document.createElement('p');p.textContent=description;list.append(p);}
+}
+function updateLevelLimit(){
+ const boxes=[...document.querySelectorAll('[name=level]')],count=boxes.filter(box=>box.checked).length;
+ for(const box of boxes)box.disabled=!box.checked&&count>=MAX_LEVELS;
+ $('level-count').textContent=`${count} / ${MAX_LEVELS} tasoa valittu · DEFAULT on aina mukana`;
+}
+function renderOrder(){
+ const list=$('effect-order');list.replaceChildren();const ids=[...(s.effectOrder??[]),...s.pieces.map(p=>p.id)].filter((id,i,a)=>a.indexOf(id)===i);
+ for(let i=0;i<ids.length;i++){const p=s.pieces.find(p=>p.id===ids[i]);if(!p)continue;const row=document.createElement('li'),name=document.createElement('span'),up=document.createElement('button'),down=document.createElement('button');name.textContent=label(p)+' ('+p.id+')';up.textContent='↑';down.textContent='↓';up.setAttribute('aria-label',label(p)+' aikaisemmin');down.setAttribute('aria-label',label(p)+' myöhemmin');up.disabled=isAITurn()||i===0;down.disabled=isAITurn()||i===ids.length-1;const move=delta=>{const order=[...ids];[order[i],order[i+delta]]=[order[i+delta],order[i]];s.effectOrder=order;save();render();};up.onclick=()=>move(-1);down.onclick=()=>move(1);row.append(name,up,down);list.append(row);}
+}
+
+// Pointer capture belongs to the stable board, since rendering replaces the cells.
+function setupDrag(){
+ const board=$('board');
+ const cellAt=(x,y)=>{const cell=document.elementFromPoint(x,y)?.closest('.cell');return cell&&board.contains(cell)?cell:null;};
+ const actionAt=(x,y)=>{const cell=cellAt(x,y),p=s.pieces.find(p=>p.id===selected);if(!cell||!p)return null;return available.find(a=>pullMatches(a,true)&&p.x+dirs[a.dir][0]*a.steps===Number(cell.dataset.x)&&p.y+dirs[a.dir][1]*a.steps===Number(cell.dataset.y))??null;};
+ const clearHover=()=>board.querySelectorAll('.drag-over').forEach(cell=>cell.classList.remove('drag-over'));
+ function finish(event,cancel=false){
+  if(!gesture||event.pointerId!==gesture.pointerId)return;
+  clearTimeout(gesture.pauseTimer);const current=gesture,action=current.active&&!cancel&&s===current.state?actionAt(event.clientX,event.clientY):null;
+  gesture=null;board.classList.remove('dragging');clearHover();
+  if(board.hasPointerCapture(current.pointerId))board.releasePointerCapture(current.pointerId);
+  if(!current.active)return;
+  suppressBoardClickUntil=performance.now()+600;
+  if(action)perform(action);else{render();message(cancel?'Vetosiirto peruttu. Toimintoa ei kulunut.':'Vetosiirto ei ole sallittu tähän ruutuun. Toimintoa ei kulunut.');}
+ }
+ board.addEventListener('pointerdown',event=>{
+  suppressBoardClickUntil=0;
+  if(gesture||!event.isPrimary||event.button!==0||s.winner!==null||isAITurn())return;
+  const cell=event.target.closest('.cell');if(!cell)return;
+  const r=rules(s),own=s.pieces.filter(p=>p.x===Number(cell.dataset.x)&&p.y===Number(cell.dataset.y)&&has(s,p,'you'+s.player,r));
+  if(!own.length)return;
+  const id=own.find(p=>p.id===selected)?.id??own[0].id;
+  gesture={pointerId:event.pointerId,id,x:event.clientX,y:event.clientY,state:s,active:false};
+ });
+ board.addEventListener('pointermove',event=>{
+  if(!gesture||event.pointerId!==gesture.pointerId)return;
+  if(!gesture.active){
+   if(Math.hypot(event.clientX-gesture.x,event.clientY-gesture.y)<8)return;
+   board.setPointerCapture(event.pointerId);gesture.active=true;selected=gesture.id;render();board.classList.add('dragging');
+  }
+  event.preventDefault();clearHover();const action=actionAt(event.clientX,event.clientY);
+  if(action){
+   cellAt(event.clientX,event.clientY)?.classList.add('drag-over');message(`Vapauta tähän: ${action.steps} askelta${action.pullSteps?', veto '+action.pullSteps+' askelta':', ei vedettävää takana'}.`);
+   const key=action.dir+':'+action.steps;
+   if(gesture.hoverKey!==key){clearTimeout(gesture.pauseTimer);gesture.hoverKey=key;
+    const p=s.pieces.find(p=>p.id===selected);
+    if(action.pullSteps&&gesture.pullUntil===undefined&&has(s,p,'fast')){
+     gesture.pauseTimer=setTimeout(()=>{if(!gesture?.active||gesture.hoverKey!==key)return;gesture.pullUntil=action.steps;render();message(`Veto lukittu ${action.steps} askeleeseen. Jatka samaan suuntaan tai vapauta.`);},650);
+    }
+   }
+  }else{clearTimeout(gesture.pauseTimer);gesture.hoverKey=null;message('Raahaa korostettuun ruutuun ja vapauta. Laudan ulkopuolelle vapauttaminen peruu siirron.');}
+ });
+ board.addEventListener('pointerup',event=>finish(event));
+ board.addEventListener('pointercancel',event=>finish(event,true));
+ board.addEventListener('lostpointercapture',event=>{if(gesture?.active)finish(event,true);});
+ board.addEventListener('click',event=>{if(performance.now()<suppressBoardClickUntil){event.preventDefault();event.stopImmediatePropagation();}},true);
+ window.addEventListener('keydown',event=>{if(event.key==='Escape'&&gesture){finish({pointerId:gesture.pointerId},true);event.preventDefault();}});
+}
+
+function setupLanguage(){
+ languageHelpOriginals=[...document.querySelectorAll('#helpDialog li,#helpDialog>p,#level-help p')].map(node=>[node,node.textContent]);
+ $('finnish-pieces').onchange=()=>{finnish=$('finnish-pieces').checked;try{localStorage.setItem('baba-language',finnish?'fi':'en');}catch{}localize();render();};
+ localize();
+}
+function localize(){
+ document.documentElement.dataset.pieceLanguage=finnish?'fi':'en';$('finnish-pieces').checked=finnish;
+ for(const key of Object.keys(names))names[key]=['win','fast','hot','melt','curious','thirsty','strong','scared','sheep'].includes(key)?term('is')+' '+term(key):term(key);
+ for(const property of document.querySelectorAll('.edge .fixed.property')){
+  property.replaceChildren(document.createTextNode(term('is')),document.createElement('br'),document.createTextNode(term('you')));
+  const edge=property.closest('.edge'),owner=edge.classList.contains('top')||edge.classList.contains('right')?'Keken':'Baban';
+  property.setAttribute('aria-label',term('is')+' '+term('you')+', '+owner+' pelaaja');
+ }
+ for(const label of document.querySelectorAll('#level-options label')){const level=Number(label.querySelector('input').value);label.querySelector('.level-name').textContent=levelNumber(level)+' · '+(finnish?FINNISH_LEVELS[level]:LEVELS[level]);}
+ for(const group of document.querySelectorAll('#level-options fieldset'))group.querySelector('legend').textContent=term('world')+' '+group.dataset.world;
+ const world=finnish?'MAAILMAT 1–2 · 10 TASOA':'WORLDS 1–2 · 10 LEVELS';document.querySelector('.edition span').textContent=world;document.querySelector('.intro>.eyebrow').textContent=world;
+ for(const [node,original]of languageHelpOriginals??[])node.textContent=translateInline(original);
+}
+
+function setupPlayers(){
+ for(let pl=0;pl<2;pl++){
+  $('controller-'+pl).value=s.controllers?.[pl]??'human';
+  $('controller-'+pl).onchange=()=>{cancelAI();s.controllers=[0,1].map(i=>$('controller-'+i).value);aiPaused=false;aiFault=null;selected=null;save();render();};
+ }
+ $('resetDialog').addEventListener('close',()=>render());$('helpDialog').addEventListener('close',()=>render());
+ $('ai-pause').onclick=()=>{cancelAI();aiPaused=!aiPaused;aiFault=null;render();};
+}
+function releaseAIWorker(){
+ if(aiWorker){aiWorker.terminate();aiWorker=null;}if(aiWorkerURL){URL.revokeObjectURL(aiWorkerURL);aiWorkerURL=null;}
+ clearTimeout(aiDeadlineTimer);aiDeadlineTimer=null;
+}
+function cancelAI(){aiJob++;clearTimeout(aiTimer);aiTimer=null;releaseAIWorker();aiBusy=false;}
+function renderAIStatus(){
+ const active=isAITurn();$('ai-panel').hidden=!active&&!aiPaused;
+ $('ai-pause').textContent=aiPaused?'Jatka AI:ta':'Keskeytä AI';
+ const who=s.player===0?'Baba':'Keke';
+ $('ai-info').textContent=aiFault??(aiPaused?'AI on keskeytetty.':active?(aiBusy?who+' miettii…':who+' · AI:n vuoro'):'');
+ $('board').setAttribute('aria-busy',String(aiBusy));
+ if(active)message(aiPaused?'AI on keskeytetty. Jatka AI:ta tai vaihda pelaaja ihmiseksi tasovalinnassa.':who+' on AI. Voit keskeyttää sen tai avata tasovalinnan.');
+}
+function queueAI(){
+ if(!isAITurn()||aiPaused||aiBusy||aiTimer||document.querySelector('dialog[open]'))return;
+ aiTimer=setTimeout(()=>{aiTimer=null;if(isAITurn()&&!aiPaused&&!document.querySelector('dialog[open]'))startAI();},180);
+}
+function startAI(){
+ const job=++aiJob;aiBusy=true;aiFault=null;renderAIStatus();
+ try{
+  const embedded=$('ai-worker-source');
+  if(embedded){aiWorkerURL=URL.createObjectURL(new Blob([embedded.textContent],{type:'text/javascript'}));aiWorker=new Worker(aiWorkerURL);}
+  else aiWorker=new Worker(new URL('./ai-worker.mjs',import.meta.url),{type:'module'});
+  const fail=text=>{if(job!==aiJob)return;releaseAIWorker();aiBusy=false;aiPaused=true;aiFault=text;render();};
+  aiWorker.onerror=event=>{event.preventDefault();fail('AI:n käynnistys epäonnistui. Voit yrittää uudelleen tai valita ihmispelaajan.');};
+  aiDeadlineTimer=setTimeout(()=>fail('AI:n mietintä keskeytettiin aikarajalla. Jatka yrittääksesi uudelleen.'),6500);
+  aiWorker.onmessage=event=>{
+   if(job!==aiJob||event.data.id!==job)return;
+   if(event.data.error){fail('AI ei löytänyt siirtoa: '+event.data.error);return;}
+   const {plan,stats}=event.data.result;releaseAIWorker();
+   $('ai-panel').dataset.depth=stats.completedTurns;$('ai-panel').dataset.nodes=stats.nodes;
+   $('ai-info').textContent=(s.player===0?'Baba':'Keke')+' siirtää…';
+   if(!plan.length){fail('AI ei löytänyt sallittua toimintoa.');return;}
+   const applyNext=index=>{
+    if(job!==aiJob||!isAITurn()||aiPaused)return;
+    try{
+     const action=plan[index];
+     s=action.kind==='challenge'?challenge(s):action.kind==='concede'?concede(s):act(s,action);
+     selected=null;save();render();
+     if(s.winner!==null||index+1===plan.length){aiBusy=false;render();return;}
+     aiTimer=setTimeout(()=>{aiTimer=null;applyNext(index+1);},450);
+    }catch(error){fail('AI:n siirtoa ei voitu tehdä: '+error.message);}
+   };
+   aiTimer=setTimeout(()=>{aiTimer=null;applyNext(0);},300);
+  };
+  aiWorker.postMessage({id:job,state:s,options:{timeMs:2500,maxTurns:3,turnWidth:6,firstWidth:8}});
+ }catch(error){releaseAIWorker();aiBusy=false;aiPaused=true;aiFault='AI ei käynnistynyt: '+error.message;render();}
+}
+
+// Offline installation stays separate from the local game state and AI search.
+async function setupOffline(){
+ if(!/^https?:$/.test(location.protocol))return;
+ const panel=$('offline-panel'),status=$('offline-status'),update=$('update-app');panel.hidden=false;
+ if(!('serviceWorker'in navigator)||!window.isSecureContext){status.textContent='Offline-asennus toimii pelin HTTPS-osoitteessa.';return;}
+ status.textContent='Valmistellaan offline-peliä…';let ready=false,waiting=false,reloadAfterUpdate=false;
+ const showStatus=()=>{status.textContent=waiting?'Uusi versio on saatavilla. Voit jatkaa peliä tai päivittää.':ready?(navigator.onLine?'Valmis offline-peliin':'Offline-tila · peli toimii ilman verkkoa'):'Valmistellaan offline-peliä…';};
+ navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloadAfterUpdate)location.reload();});
+ try{
+  const scope=new URL('./',location.href).href,workerURL=new URL('./sw.js',location.href).href;
+  const existing=await navigator.serviceWorker.getRegistration(scope),current=existing?.active??existing?.waiting??existing?.installing;
+  const registration=existing?.scope===scope&&current?.scriptURL===workerURL?existing:await navigator.serviceWorker.register(workerURL,{scope,updateViaCache:'none'});
+  const offerUpdate=()=>{if(registration.waiting&&registration.active){waiting=true;update.hidden=false;showStatus();}};
+  offerUpdate();registration.addEventListener('updatefound',()=>{const worker=registration.installing;worker?.addEventListener('statechange',()=>{if(worker.state==='installed')offerUpdate();});});
+  update.onclick=()=>{if(!registration.waiting)return;save();reloadAfterUpdate=true;update.disabled=true;registration.waiting.postMessage({type:'ACTIVATE_UPDATE'});};
+  if(!registration.active)await new Promise((resolve,reject)=>{const worker=registration.installing??registration.waiting;if(!worker){reject(Error('Offline-asennus keskeytyi.'));return;}const changed=()=>{if(worker.state==='activated')resolve();else if(worker.state==='redundant')reject(Error('Offline-asennus epäonnistui.'));};worker.addEventListener('statechange',changed);changed();});
+  ready=true;showStatus();offerUpdate();
+  window.addEventListener('offline',showStatus);window.addEventListener('online',()=>{showStatus();registration.update().catch(()=>{});});
+  registration.update().catch(()=>{});
+ }catch{status.textContent='Offline-tallennus ei onnistunut. Avaa peli uudelleen verkkoyhteydessä.';}
+}
+</script></body></html>
